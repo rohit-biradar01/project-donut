@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Calendar, Clock, DollarSign, MessageSquare, X, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Booking } from "@/types";
+import { Booking, ServiceProvider, Service } from "@/types";
 import { useApp } from "@/contexts/AppContext";
 import { Link } from "react-router-dom";
 import { format, parseISO } from "date-fns";
@@ -11,16 +11,20 @@ import { useToast } from "@/hooks/use-toast";
 
 interface BookingCardProps {
   booking: Booking;
+  provider?: ServiceProvider;
+  service?: Service;
 }
 
-const BookingCard: React.FC<BookingCardProps> = ({ booking }) => {
+const BookingCard: React.FC<BookingCardProps> = ({ booking, provider: propProvider, service: propService }) => {
   const { cancelBooking, getProviderById } = useApp();
   const { toast } = useToast();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   
-  const provider = getProviderById(booking.providerId);
-  const service = provider?.services.find(s => s.id === booking.serviceId);
+  // If provider and service are not passed as props, get them from the context
+  const contextProvider = getProviderById(booking.providerId);
+  const provider = propProvider || contextProvider;
+  const service = propService || provider?.services.find(s => s.id === booking.serviceId);
   
   if (!provider || !service) return null;
   
