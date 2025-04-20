@@ -52,6 +52,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
   const [duration, setDuration] = useState<number | undefined>();
   const [tip, setTip] = useState(0);
   const [confirmationOpen, setConfirmationOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const service = provider.services.find(s => s.id === selectedService);
   
@@ -67,23 +68,31 @@ const BookingForm: React.FC<BookingFormProps> = ({
       return;
     }
     
-    // Create a new booking object
-    const newBooking: Booking = {
-      id: `b${Date.now()}`,
-      providerId: provider.id,
-      serviceId: service.id,
-      date: format(date, "yyyy-MM-dd"),
-      time,
-      duration,
-      price: service.price + tip,
-      status: "confirmed"
-    };
+    setIsSubmitting(true);
     
-    // Add the booking
-    addBooking(newBooking);
-    
-    // Show confirmation
-    setConfirmationOpen(true);
+    // Simulate API call with delay
+    setTimeout(() => {
+      // Create a new booking object
+      const newBooking: Booking = {
+        id: `b${Date.now()}`,
+        providerId: provider.id,
+        serviceId: service.id,
+        date: format(date, "yyyy-MM-dd"),
+        time,
+        duration,
+        price: service.price + tip,
+        status: "confirmed"
+      };
+      
+      // Add the booking
+      addBooking(newBooking);
+      
+      // Reset submission state
+      setIsSubmitting(false);
+      
+      // Show confirmation
+      setConfirmationOpen(true);
+    }, 800);
   };
   
   // Generate available times based on the provider's availability
@@ -112,18 +121,18 @@ const BookingForm: React.FC<BookingFormProps> = ({
     <>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-4">
-          <div>
+          <div className="animate-in fade-in-50 slide-in-from-left-2 duration-300">
             <label className="block text-sm font-medium mb-1">Select Service</label>
             <Select 
               value={selectedService}
               onValueChange={setSelectedService}
             >
-              <SelectTrigger>
+              <SelectTrigger className="hover:shadow-glow transition-shadow">
                 <SelectValue placeholder="Select a service" />
               </SelectTrigger>
               <SelectContent>
                 {provider.services.map(service => (
-                  <SelectItem key={service.id} value={service.id}>
+                  <SelectItem key={service.id} value={service.id} className="focus:bg-primary/20">
                     {service.title} - ${service.price}
                   </SelectItem>
                 ))}
@@ -131,14 +140,14 @@ const BookingForm: React.FC<BookingFormProps> = ({
             </Select>
           </div>
           
-          <div>
+          <div className="animate-in fade-in-50 slide-in-from-left-3 duration-300 delay-100">
             <label className="block text-sm font-medium mb-1">Select Date</label>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
                   className={cn(
-                    "w-full justify-start text-left font-normal",
+                    "w-full justify-start text-left font-normal hover:shadow-glow transition-shadow",
                     !date && "text-muted-foreground"
                   )}
                 >
@@ -163,19 +172,19 @@ const BookingForm: React.FC<BookingFormProps> = ({
             </Popover>
           </div>
           
-          <div>
+          <div className="animate-in fade-in-50 slide-in-from-left-4 duration-300 delay-200">
             <label className="block text-sm font-medium mb-1">Select Time</label>
             <Select 
               value={time}
               onValueChange={setTime}
               disabled={!date || getAvailableTimes().length === 0}
             >
-              <SelectTrigger className="w-full">
+              <SelectTrigger className="w-full hover:shadow-glow transition-shadow">
                 <SelectValue placeholder="Select a time" />
               </SelectTrigger>
               <SelectContent>
                 {getAvailableTimes().map(timeSlot => (
-                  <SelectItem key={timeSlot} value={timeSlot}>
+                  <SelectItem key={timeSlot} value={timeSlot} className="focus:bg-primary/20">
                     {timeSlot}
                   </SelectItem>
                 ))}
@@ -183,19 +192,19 @@ const BookingForm: React.FC<BookingFormProps> = ({
             </Select>
           </div>
           
-          <div>
+          <div className="animate-in fade-in-50 slide-in-from-left-5 duration-300 delay-300">
             <label className="block text-sm font-medium mb-1">Select Duration</label>
             <Select 
               value={duration?.toString()}
               onValueChange={(value) => setDuration(parseInt(value))}
               disabled={!service}
             >
-              <SelectTrigger className="w-full">
+              <SelectTrigger className="w-full hover:shadow-glow transition-shadow">
                 <SelectValue placeholder="Select duration" />
               </SelectTrigger>
               <SelectContent>
                 {getDurationOptions().map(option => (
-                  <SelectItem key={option.value} value={option.value.toString()}>
+                  <SelectItem key={option.value} value={option.value.toString()} className="focus:bg-primary/20">
                     {option.label}
                   </SelectItem>
                 ))}
@@ -203,7 +212,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             </Select>
           </div>
           
-          <div>
+          <div className="animate-in fade-in-50 slide-in-from-left-6 duration-300 delay-400">
             <label className="block text-sm font-medium mb-1">Add Tip (Optional)</label>
             <div className="flex flex-wrap gap-2">
               {[0, 10, 20, 50].map(amount => (
@@ -211,7 +220,10 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   key={amount}
                   type="button"
                   variant={tip === amount ? "default" : "outline"}
-                  className="flex-1"
+                  className={cn(
+                    "flex-1 transition-all",
+                    tip === amount ? "btn-glow" : "hover:shadow-glow"
+                  )}
                   onClick={() => setTip(amount)}
                 >
                   {amount === 0 ? "No Tip" : `$${amount}`}
@@ -221,7 +233,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
           </div>
         </div>
         
-        <div className="bg-glass rounded-xl p-4 space-y-3">
+        <div className="bg-glass rounded-xl p-4 space-y-3 animate-in fade-in-50 slide-in-from-bottom-6 duration-300 delay-500 max-h-64 overflow-y-auto">
           <h4 className="font-semibold">Booking Summary</h4>
           
           <div className="flex justify-between items-center">
@@ -262,21 +274,26 @@ const BookingForm: React.FC<BookingFormProps> = ({
           </div>
         </div>
         
-        <div className="flex gap-3">
+        <div className="flex gap-3 animate-in fade-in-50 slide-in-from-bottom-4 duration-300 delay-500">
           <Button 
             type="button" 
             variant="outline" 
-            className="flex-1"
+            className="flex-1 hover:scale-105 transition-transform"
             onClick={onClose}
           >
             Cancel
           </Button>
           <Button 
             type="submit" 
-            className="flex-1 btn-glow"
-            disabled={!service || !date || !time || !duration}
+            className="flex-1 btn-glow hover:scale-105 transition-transform"
+            disabled={!service || !date || !time || !duration || isSubmitting}
           >
-            Confirm Booking
+            {isSubmitting ? (
+              <div className="flex items-center gap-2">
+                <div className="animate-spin rounded-full h-4 w-4 border-2 border-primary-foreground border-t-transparent"></div>
+                Processing...
+              </div>
+            ) : "Confirm Booking"}
           </Button>
         </div>
       </form>
@@ -285,16 +302,16 @@ const BookingForm: React.FC<BookingFormProps> = ({
       <Dialog open={confirmationOpen} onOpenChange={setConfirmationOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <div className="mx-auto w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+            <div className="mx-auto w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4 animate-in zoom-in duration-300">
               <CheckCircle className="h-6 w-6 text-primary" />
             </div>
-            <DialogTitle className="text-center">Booking Confirmed!</DialogTitle>
-            <DialogDescription className="text-center">
+            <DialogTitle className="text-center animate-in fade-in-50 duration-300">Booking Confirmed!</DialogTitle>
+            <DialogDescription className="text-center animate-in fade-in-50 duration-300 delay-100">
               Your appointment has been scheduled successfully.
             </DialogDescription>
           </DialogHeader>
           
-          <div className="bg-glass rounded-lg p-4">
+          <div className="bg-glass rounded-lg p-4 animate-in fade-in slide-in-from-bottom-4 duration-300 delay-200">
             <div className="flex justify-between items-center mb-2">
               <span className="text-muted-foreground">Provider:</span>
               <span className="font-medium">{provider.alias}</span>
@@ -313,13 +330,13 @@ const BookingForm: React.FC<BookingFormProps> = ({
             </div>
           </div>
           
-          <DialogFooter className="sm:justify-center">
+          <DialogFooter className="sm:justify-center animate-in fade-in-50 duration-300 delay-300">
             <Button 
               onClick={() => {
                 setConfirmationOpen(false);
                 onClose();
               }}
-              className="w-full sm:w-auto"
+              className="w-full sm:w-auto btn-glow hover:scale-105 transition-transform"
             >
               View in Dashboard
             </Button>
