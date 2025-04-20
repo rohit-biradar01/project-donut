@@ -1,13 +1,14 @@
-
 import type { Config } from "tailwindcss";
-const plugin = require("tailwindcss/plugin");
 
-export default {
+const config: Config = {
   darkMode: ["class"],
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
+  prefix: "",
   theme: {
     container: {
       center: true,
@@ -17,6 +18,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        brand: ['Great Vibes', 'cursive'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -51,10 +55,6 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -70,40 +70,23 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "pulse-slow": {
+          "0%, 100%": {
+            opacity: "1",
+          },
+          "50%": {
+            opacity: ".5",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-      },
-      boxShadow: {
-        "neon-sm": "0 0 5px rgba(155, 135, 245, 0.3), 0 0 20px rgba(155, 135, 245, 0.15)",
-        "neon-md": "0 0 10px rgba(155, 135, 245, 0.5), 0 0 30px rgba(155, 135, 245, 0.2)",
-        "neon-lg": "0 0 15px rgba(155, 135, 245, 0.7), 0 0 40px rgba(155, 135, 245, 0.3)",
-        "neon-blue": "0 0 10px rgba(0, 195, 255, 0.5), 0 0 30px rgba(0, 195, 255, 0.2)",
-        "neon-pink": "0 0 10px rgba(255, 0, 170, 0.5), 0 0 30px rgba(255, 0, 170, 0.2)",
-        "neon-cyan": "0 0 10px rgba(0, 255, 240, 0.5), 0 0 30px rgba(0, 255, 240, 0.2)",
-        "glow": "0 0 15px rgba(155, 135, 245, 0.5)",
-        "glow-lg": "0 0 30px rgba(155, 135, 245, 0.7)",
-        "glass": "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
-      },
-      fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui"],
-        display: ["'Clash Display'", "sans-serif"],
-        brand: ["'Pacifico'", "cursive"]
+        "pulse-slow": "pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    plugin(function({ matchUtilities, theme }: any) {
-      matchUtilities(
-        {
-          "text-shadow": (value: string) => ({
-            textShadow: value,
-          }),
-        },
-        { values: theme("textShadow") }
-      );
-    }),
-  ],
-} satisfies Config;
+  plugins: [require("tailwindcss-animate")],
+};
+
+export default config;

@@ -89,9 +89,11 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center shadow-neon-sm group-hover:shadow-neon-md transition-shadow">
-              <span className="font-brand text-lg text-primary-foreground">D</span>
+              <span className="font-['Great_Vibes'] text-2xl text-primary-foreground">D</span>
             </div>
-            <span className="font-brand text-xl font-semibold group-hover:neon-text transition-all">Project Donut</span>
+            <span className="font-['Great_Vibes'] text-3xl font-semibold group-hover:text-primary transition-colors duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+              Project Donut
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

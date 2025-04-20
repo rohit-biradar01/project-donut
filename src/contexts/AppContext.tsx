@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
 import { ServiceProvider, Booking, Service } from '@/types';
 import { mockProviders as demoProviders } from '@/data/providers';
@@ -17,7 +16,6 @@ interface AppContextType {
   selectedTheme: string;
   setSelectedTheme: (theme: string) => void;
   
-  // Add missing properties to fix the TypeScript errors
   bookings: Booking[];
   favoriteProviders: string[];
   toggleFavorite: (providerId: string) => void;
@@ -25,7 +23,7 @@ interface AppContextType {
   getProviderById: (id: string) => ServiceProvider | undefined;
   addBooking: (booking: Booking) => void;
   cancelBooking: (bookingId: string) => void;
-  updateBookingStatus: (bookingId: string, status: string) => void;
+  updateBookingStatus: (bookingId: string, status: Booking['status']) => void;
   providerServices: Service[];
   addService: (service: Service) => void;
   updateService: (serviceId: string, service: Service) => void;
@@ -50,7 +48,6 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   );
   const { toast } = useToast();
 
-  // Load user state from localStorage on initial render
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true' || 
                       sessionStorage.getItem('hasVisitedAuth') === 'true';
@@ -63,7 +60,6 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  // Save profile image to localStorage when it changes
   useEffect(() => {
     if (profileImage) {
       localStorage.setItem('profileImage', profileImage);
@@ -72,14 +68,12 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     }
   }, [profileImage]);
 
-  // Save selected theme to localStorage when it changes
   useEffect(() => {
     if (selectedTheme) {
       localStorage.setItem('selectedTheme', selectedTheme);
     }
   }, [selectedTheme]);
 
-  // Save favorites to localStorage when they change
   useEffect(() => {
     localStorage.setItem('favoriteProviders', JSON.stringify(favoriteProviders));
   }, [favoriteProviders]);
@@ -128,12 +122,14 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const cancelBooking = (bookingId: string) => {
     setBookings(current => 
       current.map(booking => 
-        booking.id === bookingId ? { ...booking, status: 'cancelled' } : booking
+        booking.id === bookingId 
+          ? { ...booking, status: 'cancelled' as const } 
+          : booking
       )
     );
   };
 
-  const updateBookingStatus = (bookingId: string, status: string) => {
+  const updateBookingStatus = (bookingId: string, status: Booking['status']) => {
     setBookings(current => 
       current.map(booking => 
         booking.id === bookingId ? { ...booking, status } : booking
@@ -141,7 +137,6 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
-  // Provider services management
   const [providerServices, setProviderServices] = useState<Service[]>([]);
 
   const addService = (service: Service) => {

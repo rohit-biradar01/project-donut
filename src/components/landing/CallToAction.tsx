@@ -5,19 +5,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useApp } from '@/contexts/AppContext';
 
 const CallToAction: React.FC = () => {
-  const { user } = useApp();
   const navigate = useNavigate();
-  const isAuthenticated = localStorage.getItem('isLoggedIn') === 'true' || 
-                         sessionStorage.getItem('hasVisitedAuth') === 'true';
-
+  const { user } = useApp();
+  
   const handleCreateProfile = () => {
-    if (isAuthenticated) {
-      // If already logged in, go to settings
-      navigate('/settings');
-    } else {
-      // If not logged in, redirect to auth page
-      navigate('/auth');
-    }
+    // Always redirect to auth page for profile creation
+    navigate('/auth');
   };
   
   return (
