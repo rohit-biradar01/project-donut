@@ -1,19 +1,22 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { ServiceProvider, Booking, User } from "@/types";
-import providersData from "@/data/providers";
+import { mockProviders } from "@/data/providers";
 
 interface AppContextState {
   providers: ServiceProvider[];
   bookings: Booking[];
   favoriteProviders: string[];
   user: User | null;
+  sosMode: boolean;
   getProviderById: (id: string) => ServiceProvider | undefined;
   addBooking: (booking: Booking) => void;
   cancelBooking: (id: string) => void;
   updateBookingStatus: (id: string, status: "pending" | "confirmed" | "completed" | "cancelled") => void;
   toggleFavorite: (id: string) => void;
   setUserType: (isProvider: boolean) => void;
+  isFavorite: (id: string) => boolean;
+  toggleSosMode: () => void;
 }
 
 const AppContext = createContext<AppContextState | undefined>(undefined);
@@ -27,9 +30,10 @@ export const useApp = () => {
 };
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [providers] = useState<ServiceProvider[]>(providersData);
+  const [providers] = useState<ServiceProvider[]>(mockProviders);
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [favoriteProviders, setFavoriteProviders] = useState<string[]>([]);
+  const [sosMode, setSosMode] = useState<boolean>(false);
   const [user, setUser] = useState<User | null>({
     isProvider: false,
     favoriteProviders: [],
@@ -132,6 +136,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }));
   };
   
+  const isFavorite = (id: string) => {
+    return favoriteProviders.includes(id);
+  };
+
+  const toggleSosMode = () => {
+    setSosMode(prev => !prev);
+  };
+  
   return (
     <AppContext.Provider
       value={{
@@ -139,12 +151,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         bookings,
         favoriteProviders,
         user,
+        sosMode,
         getProviderById,
         addBooking,
         cancelBooking,
         updateBookingStatus,
         toggleFavorite,
-        setUserType
+        setUserType,
+        isFavorite,
+        toggleSosMode
       }}
     >
       {children}
