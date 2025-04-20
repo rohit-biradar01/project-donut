@@ -7,10 +7,27 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, User, CircleUser } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard: React.FC = () => {
   const { user, setUserType } = useApp();
   const { toast } = useToast();
+  const navigate = useNavigate();
+
+  // Redirect to auth page if not coming from there (simulating authentication requirement)
+  React.useEffect(() => {
+    const hasVisitedAuth = sessionStorage.getItem('hasVisitedAuth');
+    
+    if (!hasVisitedAuth && window.location.pathname !== '/auth') {
+      toast({
+        title: "Authentication required",
+        description: "Please log in to access the dashboard.",
+        variant: "default",
+      });
+      navigate('/auth');
+    }
+  }, [navigate, toast]);
 
   const handleSwitchUserType = (type: string) => {
     const isProvider = type === "provider";
@@ -34,6 +51,14 @@ const Dashboard: React.FC = () => {
             : "Manage your bookings and favorite providers"}
         </p>
       </div>
+      
+      {/* Demo mode notice */}
+      <Alert className="mb-6 bg-glass border-primary/20">
+        <CheckCircle className="h-4 w-4 text-primary" />
+        <AlertDescription>
+          <span className="font-medium">Demo Mode:</span> You can switch between client and provider views to see different interfaces.
+        </AlertDescription>
+      </Alert>
       
       {/* Demo user switcher */}
       <div className="mb-8 p-4 rounded-xl bg-glass">

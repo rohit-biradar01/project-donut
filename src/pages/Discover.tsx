@@ -1,5 +1,6 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import DiscoveryFilters from "@/components/discovery/DiscoveryFilters";
 import ProviderGrid from "@/components/discovery/ProviderGrid";
@@ -7,12 +8,41 @@ import SectionHeader from "@/components/shared/SectionHeader";
 import { useApp } from "@/contexts/AppContext";
 import { ServiceProvider } from "@/types";
 import { Button } from "@/components/ui/button";
-import { Grid3X3, List } from "lucide-react";
+import { Grid3X3, List, Building2 } from "lucide-react";
 
 const Discover: React.FC = () => {
-  const { providers } = useApp();
+  const { providers, user } = useApp();
   const [filteredProviders, setFilteredProviders] = useState<ServiceProvider[]>(providers);
   const [viewType, setViewType] = useState<"grid" | "list">("grid");
+  const navigate = useNavigate();
+  
+  // Redirect providers away from this page
+  useEffect(() => {
+    if (user?.isProvider) {
+      navigate('/dashboard', { replace: true });
+    }
+  }, [user, navigate]);
+
+  // If the user is a provider, show a restricted access message
+  if (user?.isProvider) {
+    return (
+      <Layout>
+        <div className="flex flex-col items-center justify-center py-16 text-center">
+          <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mb-6">
+            <Building2 size={40} className="text-primary" />
+          </div>
+          <h1 className="text-3xl font-bold mb-4">Provider Access Restricted</h1>
+          <p className="text-muted-foreground mb-6 max-w-md">
+            As a service provider, you don't have access to browse other providers. 
+            Please check your dashboard to manage your services and bookings.
+          </p>
+          <Button onClick={() => navigate('/dashboard')}>
+            Go to Dashboard
+          </Button>
+        </div>
+      </Layout>
+    );
+  }
   
   const handleFilter = (filters: any) => {
     let results = [...providers];
@@ -75,7 +105,7 @@ const Discover: React.FC = () => {
   const handleSwipe = (providerId: string) => {
     setFilteredProviders(prev => prev.filter(p => p.id !== providerId));
   };
-  
+
   return (
     <Layout>
       <div className="mb-8">

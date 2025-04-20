@@ -1,6 +1,6 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { ServiceProvider, Booking, User } from "@/types";
+import { ServiceProvider, Booking, User, Service } from "@/types";
 import { mockProviders } from "@/data/providers";
 
 interface AppContextState {
@@ -17,6 +17,10 @@ interface AppContextState {
   setUserType: (isProvider: boolean) => void;
   isFavorite: (id: string) => boolean;
   toggleSosMode: () => void;
+  addService: (service: Service) => void;
+  updateService: (service: Service) => void;
+  deleteService: (serviceId: string) => void;
+  providerServices: Service[];
 }
 
 const AppContext = createContext<AppContextState | undefined>(undefined);
@@ -34,6 +38,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [favoriteProviders, setFavoriteProviders] = useState<string[]>([]);
   const [sosMode, setSosMode] = useState<boolean>(false);
+  const [providerServices, setProviderServices] = useState<Service[]>([]);
   const [user, setUser] = useState<User | null>({
     isProvider: false,
     favoriteProviders: [],
@@ -89,7 +94,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     
     // Set some initial favorites
     setFavoriteProviders(["p1", "p3"]);
-  }, []);
+
+    // Initialize provider services for demo
+    if (providers.length > 0) {
+      setProviderServices(providers[0].services);
+    }
+  }, [providers]);
   
   const getProviderById = (id: string) => {
     return providers.find(provider => provider.id === id);
@@ -143,6 +153,23 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const toggleSosMode = () => {
     setSosMode(prev => !prev);
   };
+
+  // Provider-specific functions
+  const addService = (service: Service) => {
+    setProviderServices(prev => [...prev, service]);
+  };
+
+  const updateService = (updatedService: Service) => {
+    setProviderServices(prev => 
+      prev.map(service => 
+        service.id === updatedService.id ? updatedService : service
+      )
+    );
+  };
+
+  const deleteService = (serviceId: string) => {
+    setProviderServices(prev => prev.filter(service => service.id !== serviceId));
+  };
   
   return (
     <AppContext.Provider
@@ -159,7 +186,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         toggleFavorite,
         setUserType,
         isFavorite,
-        toggleSosMode
+        toggleSosMode,
+        addService,
+        updateService,
+        deleteService,
+        providerServices
       }}
     >
       {children}

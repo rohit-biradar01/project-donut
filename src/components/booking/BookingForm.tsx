@@ -29,6 +29,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { CheckCircle } from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface BookingFormProps {
   provider: ServiceProvider;
@@ -118,7 +119,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
   };
   
   return (
-    <>
+    <ScrollArea className="h-full max-h-[80vh] overflow-y-auto pr-4">
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-4">
           <div className="animate-in fade-in-50 slide-in-from-left-2 duration-300">
@@ -233,7 +234,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
           </div>
         </div>
         
-        <div className="bg-glass rounded-xl p-4 space-y-3 animate-in fade-in-50 slide-in-from-bottom-6 duration-300 delay-500 max-h-64 overflow-y-auto">
+        <div className="bg-glass rounded-xl p-4 space-y-3 animate-in fade-in-50 slide-in-from-bottom-6 duration-300 delay-500">
           <h4 className="font-semibold">Booking Summary</h4>
           
           <div className="flex justify-between items-center">
@@ -343,7 +344,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
           </DialogFooter>
         </DialogContent>
       </Dialog>
-    </>
+    </ScrollArea>
   );
 };
 
