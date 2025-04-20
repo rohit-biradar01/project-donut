@@ -58,7 +58,7 @@ export interface User {
   bookings: string[];
 }
 
-export type Theme = "dark" | "light" | "pastel" | "gradient";
+export type Theme = "light" | "dark" | "pastel" | "gradient" | "neon-blue" | "hot-pink" | "cyber-purple";
 
 export interface Message {
   id: string;

@@ -16,7 +16,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   });
 
   useEffect(() => {
-    document.documentElement.classList.remove("light", "dark", "pastel", "gradient");
+    document.documentElement.classList.remove("light", "dark", "pastel", "gradient", "neon-blue", "hot-pink", "cyber-purple");
     document.documentElement.classList.add(theme);
     localStorage.setItem("theme", theme);
   }, [theme]);

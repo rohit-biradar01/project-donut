@@ -1,10 +1,24 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, ShieldCheck, Lock, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero: React.FC = () => {
+  const navigate = useNavigate();
+  const isAuthenticated = localStorage.getItem('isLoggedIn') === 'true' || 
+                         sessionStorage.getItem('hasVisitedAuth') === 'true';
+
+  const handleCreateProfile = () => {
+    if (isAuthenticated) {
+      // If already logged in, go to settings
+      navigate('/settings');
+    } else {
+      // If not logged in, redirect to auth page
+      navigate('/auth');
+    }
+  };
+
   return (
     <section className="relative overflow-hidden py-20 md:py-28">
       {/* Background gradient */}
@@ -29,8 +43,12 @@ const Hero: React.FC = () => {
               </Link>
             </Button>
             
-            <Button asChild variant="outline" size="lg">
-              <Link to="/discover">Create Profile</Link>
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={handleCreateProfile}
+            >
+              Create Profile
             </Button>
           </div>
           

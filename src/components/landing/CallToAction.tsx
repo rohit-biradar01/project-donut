@@ -1,9 +1,25 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useApp } from '@/contexts/AppContext';
 
 const CallToAction: React.FC = () => {
+  const { user } = useApp();
+  const navigate = useNavigate();
+  const isAuthenticated = localStorage.getItem('isLoggedIn') === 'true' || 
+                         sessionStorage.getItem('hasVisitedAuth') === 'true';
+
+  const handleCreateProfile = () => {
+    if (isAuthenticated) {
+      // If already logged in, go to settings
+      navigate('/settings');
+    } else {
+      // If not logged in, redirect to auth page
+      navigate('/auth');
+    }
+  };
+  
   return (
     <section className="py-16 md:py-24 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/80 pointer-events-none"></div>
@@ -19,13 +35,11 @@ const CallToAction: React.FC = () => {
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button 
-            asChild
             size="lg" 
             className="btn-glow text-lg font-medium px-8 py-6 h-auto animate-in fade-in-50 duration-300"
+            onClick={handleCreateProfile}
           >
-            <Link to="/auth">
-              Create Profile
-            </Link>
+            Create Profile
           </Button>
           
           <Button 

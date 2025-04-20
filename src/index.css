@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://api.fontshare.com/v2/css?f[]=clash-display@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -115,6 +116,73 @@
     --input: 260 20% 25%;
     --ring: 230 100% 70%;
   }
+
+  /* New Themes */
+  .neon-blue {
+    --background: 220 25% 8%;
+    --foreground: 0 0% 98%;
+    --card: 220 25% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 25% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 199 95% 70%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 20% 65%;
+    --accent: 199 95% 70%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 20% 15%;
+    --input: 220 20% 15%;
+    --ring: 199 95% 70%;
+  }
+
+  .hot-pink {
+    --background: 334 15% 8%;
+    --foreground: 0 0% 98%;
+    --card: 334 15% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 334 15% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 330 95% 70%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 334 20% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 334 20% 15%;
+    --muted-foreground: 334 10% 65%;
+    --accent: 330 95% 70%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 334 20% 15%;
+    --input: 334 20% 15%;
+    --ring: 330 95% 70%;
+  }
+
+  .cyber-purple {
+    --background: 270 20% 8%;
+    --foreground: 0 0% 98%;
+    --card: 270 20% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 270 20% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 280 95% 70%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 20% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 270 20% 15%;
+    --muted-foreground: 270 10% 65%;
+    --accent: 280 95% 70%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 270 20% 15%;
+    --input: 270 20% 15%;
+    --ring: 280 95% 70%;
+  }
 }
 
 @layer base {
@@ -222,6 +290,11 @@
   .neon-highlight {
     @apply relative after:absolute after:inset-0 after:rounded-md after:bg-primary/20 after:opacity-0 hover:after:opacity-100 after:transition-opacity;
   }
+
+  /* Font styles */
+  .font-brand {
+    @apply font-['Pacifico',_cursive];
+  }
 }
 
 /* Enhanced Glassmorphism styles */
@@ -235,6 +308,21 @@
 .dark .bg-glass {
   background: rgba(20, 20, 30, 0.7);
   border: 1px solid rgba(155, 135, 245, 0.2);
+}
+
+.neon-blue .bg-glass {
+  background: rgba(20, 25, 40, 0.7);
+  border: 1px solid rgba(0, 195, 255, 0.2);
+}
+
+.hot-pink .bg-glass {
+  background: rgba(40, 20, 30, 0.7);
+  border: 1px solid rgba(255, 0, 170, 0.2);
+}
+
+.cyber-purple .bg-glass {
+  background: rgba(30, 15, 50, 0.7);
+  border: 1px solid rgba(190, 120, 255, 0.2);
 }
 
 /* Enhanced animations */
@@ -303,6 +391,18 @@
   background: rgba(155, 135, 245, 0.5);
 }
 
+.neon-blue ::-webkit-scrollbar-thumb {
+  background: rgba(0, 195, 255, 0.3);
+}
+
+.hot-pink ::-webkit-scrollbar-thumb {
+  background: rgba(255, 0, 170, 0.3);
+}
+
+.cyber-purple ::-webkit-scrollbar-thumb {
+  background: rgba(190, 120, 255, 0.3);
+}
+
 /* Neon text effect */
 .neon-text {
   text-shadow: 0 0 5px rgba(155, 135, 245, 0.7), 
@@ -310,19 +410,116 @@
                0 0 15px rgba(155, 135, 245, 0.3);
 }
 
-.neon-text-blue {
-  text-shadow: 0 0 5px rgba(30, 174, 219, 0.7), 
-               0 0 10px rgba(30, 174, 219, 0.5), 
-               0 0 15px rgba(30, 174, 219, 0.3);
+.neon-blue .neon-text {
+  text-shadow: 0 0 5px rgba(0, 195, 255, 0.7), 
+               0 0 10px rgba(0, 195, 255, 0.5), 
+               0 0 15px rgba(0, 195, 255, 0.3);
 }
 
-.neon-text-pink {
-  text-shadow: 0 0 5px rgba(217, 70, 239, 0.7), 
-               0 0 10px rgba(217, 70, 239, 0.5), 
-               0 0 15px rgba(217, 70, 239, 0.3);
+.hot-pink .neon-text {
+  text-shadow: 0 0 5px rgba(255, 0, 170, 0.7),
+               0 0 10px rgba(255, 0, 170, 0.5),
+               0 0 15px rgba(255, 0, 170, 0.3);
+}
+
+.cyber-purple .neon-text {
+  text-shadow: 0 0 5px rgba(190, 120, 255, 0.7),
+               0 0 10px rgba(190, 120, 255, 0.5),
+               0 0 15px rgba(190, 120, 255, 0.3);
+}
+
+/* Shadow effects for different themes */
+.neon-blue .shadow-neon-sm {
+  box-shadow: 0 0 5px rgba(0, 195, 255, 0.3),
+              0 0 20px rgba(0, 195, 255, 0.15);
+}
+
+.hot-pink .shadow-neon-sm {
+  box-shadow: 0 0 5px rgba(255, 0, 170, 0.3),
+              0 0 20px rgba(255, 0, 170, 0.15);
+}
+
+.cyber-purple .shadow-neon-sm {
+  box-shadow: 0 0 5px rgba(190, 120, 255, 0.3),
+              0 0 20px rgba(190, 120, 255, 0.15);
+}
+
+.neon-blue .shadow-neon-md {
+  box-shadow: 0 0 10px rgba(0, 195, 255, 0.5),
+              0 0 30px rgba(0, 195, 255, 0.2);
+}
+
+.hot-pink .shadow-neon-md {
+  box-shadow: 0 0 10px rgba(255, 0, 170, 0.5),
+              0 0 30px rgba(255, 0, 170, 0.2);
+}
+
+.cyber-purple .shadow-neon-md {
+  box-shadow: 0 0 10px rgba(190, 120, 255, 0.5),
+              0 0 30px rgba(190, 120, 255, 0.2);
 }
 
 /* Improved neon glow for buttons and UI elements */
 .btn-primary {
   @apply relative inline-flex items-center justify-center overflow-hidden rounded-md bg-primary px-4 py-2 font-medium text-primary-foreground shadow-neon-sm transition-all hover:shadow-neon-md hover:scale-105 active:scale-95;
+}
+
+/* Animation for floating elements */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Text shimmer animation */
+@keyframes text-shimmer {
+  0% { background-position: -100% 0; }
+  100% { background-position: 100% 0; }
+}
+
+.animate-text-shimmer {
+  animation: text-shimmer 4s linear infinite;
+}
+
+/* Slow pulse animation */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* Glow pulse animation */
+@keyframes glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(var(--color-primary), 0.7)); }
+  50% { filter: drop-shadow(0 0 16px rgba(var(--color-primary), 0.9)); }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+  --color-primary: 155, 135, 245;
+}
+
+.neon-blue .animate-glow-pulse {
+  --color-primary: 0, 195, 255;
+}
+
+.hot-pink .animate-glow-pulse {
+  --color-primary: 255, 0, 170;
+}
+
+.cyber-purple .animate-glow-pulse {
+  --color-primary: 190, 120, 255;
 }

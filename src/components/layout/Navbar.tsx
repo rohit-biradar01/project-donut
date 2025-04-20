@@ -1,17 +1,47 @@
 
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, User, MessageSquare, Calendar, Heart, Shield, CircleUser, Settings, PieChart } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X, User, MessageSquare, Calendar, Heart, Shield, CircleUser, Settings, PieChart, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useApp } from '@/contexts/AppContext';
+import { useToast } from '@/hooks/use-toast';
+import { 
+  DropdownMenu, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuLabel, 
+  DropdownMenuSeparator, 
+  DropdownMenuTrigger 
+} from '@/components/ui/dropdown-menu';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { sosMode, user } = useApp();
+  const { sosMode, user, setUserType, profileImage } = useApp();
   const location = useLocation();
+  const navigate = useNavigate();
+  const { toast } = useToast();
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const handleLogout = () => {
+    // Clear auth data
+    localStorage.removeItem('isLoggedIn');
+    sessionStorage.removeItem('hasVisitedAuth');
+    
+    // Reset user state
+    setUserType(false);
+    
+    // Show toast notification
+    toast({
+      title: "Logged out successfully",
+      description: "You've been logged out of your account",
+    });
+    
+    // Redirect to home
+    navigate('/');
+  };
 
   // Define navigation links based on user type
   const clientNavLinks = [
@@ -30,7 +60,7 @@ const Navbar: React.FC = () => {
   const navLinks = user?.isProvider ? providerNavLinks : clientNavLinks;
   
   // Define CTA button based on user type and current route
-  const isAuthenticated = location.pathname !== '/' && location.pathname !== '/auth';
+  const isAuthenticated = localStorage.getItem('isLoggedIn') === 'true' || sessionStorage.getItem('hasVisitedAuth') === 'true';
   
   let ctaButton;
   if (!isAuthenticated) {
@@ -59,9 +89,9 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center shadow-neon-sm group-hover:shadow-neon-md transition-shadow">
-              <span className="font-display text-lg text-primary-foreground">D</span>
+              <span className="font-brand text-lg text-primary-foreground">D</span>
             </div>
-            <span className="font-display text-xl font-semibold group-hover:neon-text transition-all">Project Donut</span>
+            <span className="font-brand text-xl font-semibold group-hover:neon-text transition-all">Project Donut</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -88,14 +118,41 @@ const Navbar: React.FC = () => {
               </div>
             )}
             {ctaButton}
+            
             {isAuthenticated && (
-              <div className="ml-2 h-8 w-8 rounded-full bg-secondary flex items-center justify-center shadow-neon-sm">
-                {user?.isProvider ? (
-                  <CircleUser size={20} className="text-primary" />
-                ) : (
-                  <User size={20} className="text-primary" />
-                )}
-              </div>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="rounded-full h-9 w-9 p-0 ml-2">
+                    <Avatar className="h-8 w-8 border border-primary/30 transition-all hover:shadow-neon-sm">
+                      <AvatarImage src={profileImage || ""} alt="Profile" />
+                      <AvatarFallback className="bg-primary/20 text-primary">
+                        {user?.isProvider ? (
+                          <CircleUser size={20} />
+                        ) : (
+                          <User size={20} />
+                        )}
+                      </AvatarFallback>
+                    </Avatar>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56 bg-glass border-primary/30 shadow-neon-sm">
+                  <DropdownMenuLabel className="font-normal">
+                    <div className="flex flex-col space-y-1">
+                      <p className="text-sm font-medium">{user?.isProvider ? "Provider Account" : "Client Account"}</p>
+                      <p className="text-xs text-muted-foreground">demo@example.com</p>
+                    </div>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator className="bg-primary/20" />
+                  <DropdownMenuItem onClick={() => navigate('/settings')} className="cursor-pointer">
+                    <Settings className="mr-2 h-4 w-4" />
+                    <span>Settings</span>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-destructive focus:text-destructive">
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Log out</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             )}
           </nav>
 
@@ -121,9 +178,9 @@ const Navbar: React.FC = () => {
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center space-x-2">
               <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center shadow-neon-sm">
-                <span className="font-display text-lg text-primary-foreground">D</span>
+                <span className="font-brand text-lg text-primary-foreground">D</span>
               </div>
-              <span className="font-display text-lg font-semibold">Project Donut</span>
+              <span className="font-brand text-lg font-semibold">Project Donut</span>
             </div>
             <button 
               className="p-2 rounded-lg hover:bg-secondary"
@@ -169,6 +226,20 @@ const Navbar: React.FC = () => {
               <Shield size={18} />
               <span className="font-medium">SOS Mode Active</span>
             </div>
+          )}
+          
+          {isAuthenticated && (
+            <Button 
+              variant="outline" 
+              className="w-full mb-4 bg-glass text-primary hover:text-primary-foreground border-primary/30"
+              onClick={() => {
+                handleLogout();
+                toggleMenu();
+              }}
+            >
+              <LogOut className="mr-2 h-4 w-4" />
+              <span>Log out</span>
+            </Button>
           )}
           
           {ctaButton && (
