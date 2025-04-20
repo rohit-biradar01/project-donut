@@ -35,33 +35,33 @@ const Navbar: React.FC = () => {
   let ctaButton;
   if (!isAuthenticated) {
     ctaButton = (
-      <Button asChild>
+      <Button asChild className="btn-neon">
         <Link to="/auth">Sign In</Link>
       </Button>
     );
   } else if (user?.isProvider) {
     ctaButton = (
-      <Button asChild>
+      <Button asChild className="btn-neon">
         <Link to="/dashboard">View Bookings</Link>
       </Button>
     );
   } else {
     ctaButton = (
-      <Button asChild>
+      <Button asChild className="btn-neon">
         <Link to="/discover">Browse Providers</Link>
       </Button>
     );
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-glass backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-glass backdrop-blur-md border-b border-primary/20">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
+          <Link to="/" className="flex items-center space-x-2 group">
+            <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center shadow-neon-sm group-hover:shadow-neon-md transition-shadow">
               <span className="font-display text-lg text-primary-foreground">D</span>
             </div>
-            <span className="font-display text-xl font-semibold">Project Donut</span>
+            <span className="font-display text-xl font-semibold group-hover:neon-text transition-all">Project Donut</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -71,9 +71,9 @@ const Navbar: React.FC = () => {
                 key={link.path} 
                 to={link.path}
                 className={cn(
-                  "px-3 py-2 rounded-lg flex items-center gap-1.5 transition-colors",
+                  "px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all duration-300",
                   location.pathname === link.path 
-                    ? "bg-primary/20 text-primary" 
+                    ? "bg-primary/20 text-primary shadow-neon-sm" 
                     : "hover:bg-secondary hover:text-accent-foreground"
                 )}
               >
@@ -82,14 +82,14 @@ const Navbar: React.FC = () => {
               </Link>
             ))}
             {sosMode && (
-              <div className="bg-destructive/20 text-destructive px-3 py-1.5 rounded-full flex items-center gap-1.5">
+              <div className="bg-destructive/20 text-destructive px-3 py-1.5 rounded-full flex items-center gap-1.5 animate-pulse-slow">
                 <Shield size={16} />
                 <span className="text-sm font-medium">SOS Active</span>
               </div>
             )}
             {ctaButton}
             {isAuthenticated && (
-              <div className="ml-2 h-8 w-8 rounded-full bg-secondary flex items-center justify-center">
+              <div className="ml-2 h-8 w-8 rounded-full bg-secondary flex items-center justify-center shadow-neon-sm">
                 {user?.isProvider ? (
                   <CircleUser size={20} className="text-primary" />
                 ) : (
@@ -113,14 +113,14 @@ const Navbar: React.FC = () => {
       {/* Mobile Navigation */}
       <nav 
         className={cn(
-          "fixed inset-y-0 right-0 z-50 w-64 bg-background shadow-lg transform transition-transform duration-300 ease-in-out md:hidden",
+          "fixed inset-y-0 right-0 z-50 w-64 bg-background shadow-neon-sm transform transition-transform duration-300 ease-in-out md:hidden",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
         <div className="p-4 h-full flex flex-col">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center space-x-2">
-              <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
+              <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center shadow-neon-sm">
                 <span className="font-display text-lg text-primary-foreground">D</span>
               </div>
               <span className="font-display text-lg font-semibold">Project Donut</span>
@@ -142,7 +142,7 @@ const Navbar: React.FC = () => {
                 className={cn(
                   "px-4 py-3 rounded-lg flex items-center gap-2 transition-colors",
                   location.pathname === link.path 
-                    ? "bg-primary/20 text-primary" 
+                    ? "bg-primary/20 text-primary shadow-neon-sm" 
                     : "hover:bg-secondary hover:text-accent-foreground"
                 )}
                 onClick={toggleMenu}
@@ -165,7 +165,7 @@ const Navbar: React.FC = () => {
           </div>
           
           {sosMode && (
-            <div className="bg-destructive/20 text-destructive rounded-lg p-3 mb-4 flex items-center gap-2">
+            <div className="bg-destructive/20 text-destructive rounded-lg p-3 mb-4 flex items-center gap-2 animate-pulse-slow">
               <Shield size={18} />
               <span className="font-medium">SOS Mode Active</span>
             </div>

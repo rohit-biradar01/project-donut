@@ -40,29 +40,29 @@
   }
 
   .dark {
-    /* Dark mode + neon glow */
-    --background: 240 10% 10%;
+    /* Enhanced dark mode with more vivid neon accents */
+    --background: 240 10% 8%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 12%;
+    --card: 240 10% 10%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 10%;
+    --popover: 240 10% 8%;
     --popover-foreground: 0 0% 98%;
-    --primary: 259 60% 75%;
+    --primary: 259 80% 75%;
     --primary-foreground: 0 0% 100%;
     --secondary: 240 5% 15%;
     --secondary-foreground: 0 0% 98%;
     --muted: 240 5% 15%;
     --muted-foreground: 240 5% 65%;
-    --accent: 259 60% 75%;
+    --accent: 259 80% 75%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62.8% 50.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 240 5% 15%;
     --input: 240 5% 15%;
-    --ring: 259 60% 75%;
-    --sidebar-background: 240 10% 8%;
+    --ring: 259 80% 75%;
+    --sidebar-background: 240 10% 6%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 259 60% 75%;
+    --sidebar-primary: 259 80% 75%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 5% 15%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
@@ -94,12 +94,12 @@
   }
 
   .gradient {
-    /* Gradient bold theme */
-    --background: 260 20% 15%;
+    /* Enhanced gradient bold theme */
+    --background: 260 20% 12%;
     --foreground: 0 0% 100%;
-    --card: 260 20% 20%;
+    --card: 260 20% 18%;
     --card-foreground: 0 0% 100%;
-    --popover: 260 20% 15%;
+    --popover: 260 20% 12%;
     --popover-foreground: 0 0% 100%;
     --primary: 230 100% 70%;
     --primary-foreground: 0 0% 100%;
@@ -149,6 +149,17 @@
   h4 {
     @apply text-xl md:text-2xl;
   }
+
+  /* Enhanced element styling */
+  button, 
+  .btn, 
+  [type="button"] {
+    @apply transition-all duration-300;
+  }
+
+  a {
+    @apply transition-all duration-300;
+  }
 }
 
 @layer components {
@@ -157,15 +168,35 @@
   }
   
   .glass-card {
-    @apply glass hover:shadow-glow transition-shadow duration-300;
+    @apply glass hover:shadow-neon-sm transition-shadow duration-300;
   }
   
   .neon-border {
     @apply border border-neon-purple/50 shadow-glow;
   }
+
+  .neon-purple-border {
+    @apply border border-neon-purple/50 shadow-neon-md;
+  }
+
+  .neon-blue-border {
+    @apply border border-neon-blue/50 shadow-neon-blue;
+  }
+
+  .neon-pink-border {
+    @apply border border-neon-pink/50 shadow-neon-pink;
+  }
+
+  .neon-cyan-border {
+    @apply border border-neon-cyan/50 shadow-neon-cyan;
+  }
   
   .btn-glow {
     @apply relative overflow-hidden rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-glow transition-all hover:shadow-glow-lg hover:scale-105 active:scale-95;
+  }
+
+  .btn-neon {
+    @apply relative overflow-hidden rounded-md bg-transparent border border-primary/50 px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-neon-sm transition-all hover:shadow-neon-md hover:border-primary hover:scale-105 active:scale-95;
   }
   
   .tag {
@@ -181,11 +212,19 @@
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-glow;
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-neon-sm;
+  }
+
+  .shimmer-text {
+    @apply bg-gradient-to-r from-primary via-white to-primary bg-[size:200%_100%] animate-text-shimmer bg-clip-text text-transparent;
+  }
+
+  .neon-highlight {
+    @apply relative after:absolute after:inset-0 after:rounded-md after:bg-primary/20 after:opacity-0 hover:after:opacity-100 after:transition-opacity;
   }
 }
 
-/* Glassmorphism styles */
+/* Enhanced Glassmorphism styles */
 .bg-glass {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -198,7 +237,7 @@
   border: 1px solid rgba(155, 135, 245, 0.2);
 }
 
-/* Animations */
+/* Enhanced animations */
 .animate-in {
   animation: fadeIn 0.5s ease-out forwards;
 }
@@ -214,7 +253,30 @@
   }
 }
 
-/* Scrollbar styling */
+/* Interactive button effects */
+.button-glow {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.button-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(155, 135, 245, 0.3), transparent);
+  transition: 0.6s;
+  z-index: -1;
+}
+
+.button-glow:hover::after {
+  left: 100%;
+}
+
+/* Enhanced Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -239,4 +301,28 @@
 
 .dark ::-webkit-scrollbar-thumb:hover {
   background: rgba(155, 135, 245, 0.5);
+}
+
+/* Neon text effect */
+.neon-text {
+  text-shadow: 0 0 5px rgba(155, 135, 245, 0.7), 
+               0 0 10px rgba(155, 135, 245, 0.5), 
+               0 0 15px rgba(155, 135, 245, 0.3);
+}
+
+.neon-text-blue {
+  text-shadow: 0 0 5px rgba(30, 174, 219, 0.7), 
+               0 0 10px rgba(30, 174, 219, 0.5), 
+               0 0 15px rgba(30, 174, 219, 0.3);
+}
+
+.neon-text-pink {
+  text-shadow: 0 0 5px rgba(217, 70, 239, 0.7), 
+               0 0 10px rgba(217, 70, 239, 0.5), 
+               0 0 15px rgba(217, 70, 239, 0.3);
+}
+
+/* Improved neon glow for buttons and UI elements */
+.btn-primary {
+  @apply relative inline-flex items-center justify-center overflow-hidden rounded-md bg-primary px-4 py-2 font-medium text-primary-foreground shadow-neon-sm transition-all hover:shadow-neon-md hover:scale-105 active:scale-95;
 }

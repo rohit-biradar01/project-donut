@@ -15,9 +15,9 @@ const Dashboard: React.FC = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  // Redirect to auth page if not coming from there (simulating authentication requirement)
+  // Improved authentication check that respects localStorage
   React.useEffect(() => {
-    const hasVisitedAuth = sessionStorage.getItem('hasVisitedAuth');
+    const hasVisitedAuth = sessionStorage.getItem('hasVisitedAuth') || localStorage.getItem('isLoggedIn');
     
     if (!hasVisitedAuth && window.location.pathname !== '/auth') {
       toast({
@@ -53,7 +53,7 @@ const Dashboard: React.FC = () => {
       </div>
       
       {/* Demo mode notice */}
-      <Alert className="mb-6 bg-glass border-primary/20">
+      <Alert className="mb-6 bg-glass border-primary/20 animate-pulse-slow">
         <CheckCircle className="h-4 w-4 text-primary" />
         <AlertDescription>
           <span className="font-medium">Demo Mode:</span> You can switch between client and provider views to see different interfaces.
@@ -61,19 +61,19 @@ const Dashboard: React.FC = () => {
       </Alert>
       
       {/* Demo user switcher */}
-      <div className="mb-8 p-4 rounded-xl bg-glass">
+      <div className="mb-8 p-4 rounded-xl bg-glass border border-primary/20 shadow-neon-sm">
         <p className="text-sm text-muted-foreground mb-2">Demo Mode: Switch between user types</p>
         <Tabs
           defaultValue={user?.isProvider ? "provider" : "client"}
           onValueChange={handleSwitchUserType}
           className="w-full"
         >
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="client" className="flex items-center gap-2">
+          <TabsList className="grid w-full grid-cols-2 bg-background/50 backdrop-blur-sm">
+            <TabsTrigger value="client" className="flex items-center gap-2 data-[state=active]:shadow-neon-sm">
               <User size={16} />
               Client View
             </TabsTrigger>
-            <TabsTrigger value="provider" className="flex items-center gap-2">
+            <TabsTrigger value="provider" className="flex items-center gap-2 data-[state=active]:shadow-neon-sm">
               <CircleUser size={16} />
               Provider View
             </TabsTrigger>

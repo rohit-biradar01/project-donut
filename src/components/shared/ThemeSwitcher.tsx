@@ -40,16 +40,16 @@ const ThemeSwitcher: React.FC = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon" className="rounded-full bg-glass">
+        <Button variant="outline" size="icon" className="rounded-full bg-glass border-primary/30 shadow-neon-sm hover:shadow-neon-md transition-all">
           {themes.find(t => t.value === theme)?.icon || <Sun className="h-4 w-4" />}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="border-primary/30 shadow-neon-sm">
         {themes.map((t) => (
           <DropdownMenuItem
             key={t.value}
             onClick={() => setTheme(t.value)}
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer transition-colors hover:bg-primary/20"
           >
             {t.icon}
             <span>{t.label}</span>

@@ -11,11 +11,11 @@ import { useNavigate } from 'react-router-dom';
 const Index: React.FC = () => {
   const navigate = useNavigate();
   
-  // When users click "Create Profile", store a flag to remember they went through auth flow
-  // this is a simple way to simulate authentication for the demo
+  // Improved authentication persistence - store in both session and localStorage
   React.useEffect(() => {
     const handleNavigation = () => {
       sessionStorage.setItem('hasVisitedAuth', 'true');
+      localStorage.setItem('isLoggedIn', 'true');
     };
     
     // Add event listener
