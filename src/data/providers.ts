@@ -1,6 +1,7 @@
 
 import { ServiceProvider } from "@/types";
 
+// Explicitly export mockProviders as the default export name
 export const mockProviders: ServiceProvider[] = [
   {
     id: "p1",
@@ -596,3 +597,6 @@ export const mockProviders: ServiceProvider[] = [
     ]
   }
 ];
+
+// Also export as providers for backward compatibility
+export { mockProviders as providers };
