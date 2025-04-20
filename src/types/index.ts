@@ -1,4 +1,3 @@
-
 export interface ServiceProvider {
   id: string;
   alias: string;
@@ -21,6 +20,7 @@ export interface Service {
   price: number;
   duration: number;
   description: string;
+  imageUrl?: string; // Added imageUrl as optional property
 }
 
 export interface Availability {

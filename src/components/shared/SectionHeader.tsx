@@ -6,12 +6,14 @@ interface SectionHeaderProps {
   title: string;
   description?: string;
   className?: string;
+  centered?: boolean; // Added centered prop
 }
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({
   title,
   description,
   className,
+  centered,
 }) => {
   return (
     <div className={cn("text-center mb-10 max-w-2xl mx-auto px-4", className)}>
