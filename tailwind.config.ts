@@ -1,12 +1,9 @@
 
-import type { Config } from "tailwindcss";
+import { type Config } from "tailwindcss";
 
-const config: Config = {
+export default {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
@@ -19,10 +16,6 @@ const config: Config = {
       },
     },
     extend: {
-      fontFamily: {
-        brand: ['Great Vibes', 'cursive'],
-        display: ['"Clash Display"', 'sans-serif'],  // Added display font family
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -64,15 +57,15 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        glass: "0 4px 24px 0 rgba(31, 38, 135, 0.2)",
-        glow: "0 0 5px rgba(155, 135, 245, 0.7), 0 0 20px rgba(155, 135, 245, 0.3)",
-        "glow-lg": "0 0 10px rgba(155, 135, 245, 0.7), 0 0 30px rgba(155, 135, 245, 0.5), 0 0 50px rgba(155, 135, 245, 0.3)",
-        "neon-sm": "0 0 5px rgba(155, 135, 245, 0.3), 0 0 20px rgba(155, 135, 245, 0.15)",
-        "neon-md": "0 0 10px rgba(155, 135, 245, 0.5), 0 0 30px rgba(155, 135, 245, 0.2)",
-        "neon-lg": "0 0 15px rgba(155, 135, 245, 0.7), 0 0 40px rgba(155, 135, 245, 0.4), 0 0 60px rgba(155, 135, 245, 0.2)",
-        "neon-blue": "0 0 10px rgba(0, 195, 255, 0.5), 0 0 30px rgba(0, 195, 255, 0.2)",
-        "neon-pink": "0 0 10px rgba(255, 0, 170, 0.5), 0 0 30px rgba(255, 0, 170, 0.2)",
-        "neon-cyan": "0 0 10px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2)",
+        // Add custom shadow definitions
+        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+        'glow': '0 0 10px rgba(155, 135, 245, 0.5)',
+        'glow-lg': '0 0 20px rgba(155, 135, 245, 0.7)',
+        'neon-sm': '0 0 5px rgba(155, 135, 245, 0.3), 0 0 20px rgba(155, 135, 245, 0.15)',
+        'neon-md': '0 0 10px rgba(155, 135, 245, 0.5), 0 0 30px rgba(155, 135, 245, 0.2)',
+        'neon-blue': '0 0 10px rgba(0, 195, 255, 0.5), 0 0 30px rgba(0, 195, 255, 0.2)',
+        'neon-pink': '0 0 10px rgba(255, 0, 170, 0.5), 0 0 30px rgba(255, 0, 170, 0.2)',
+        'neon-cyan': '0 0 10px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2)',
       },
       keyframes: {
         "accordion-down": {
@@ -83,23 +76,12 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "pulse-slow": {
-          "0%, 100%": {
-            opacity: "1",
-          },
-          "50%": {
-            opacity: ".5",
-          },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "pulse-slow": "pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-};
-
-export default config;
+} satisfies Config;

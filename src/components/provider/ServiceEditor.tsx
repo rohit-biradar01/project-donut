@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { 
   Card, 
@@ -83,7 +82,7 @@ const ServiceEditor: React.FC = () => {
       
       toast({
         title: "Service deleted",
-        description: "The service has been removed from your profile",
+        description: "The service has been removed from your profile"
       });
     }
   };
@@ -93,7 +92,7 @@ const ServiceEditor: React.FC = () => {
       toast({
         title: "Missing information",
         description: "Please fill all required fields",
-        variant: "destructive",
+        variant: "destructive"
       });
       return;
     }
@@ -116,13 +115,13 @@ const ServiceEditor: React.FC = () => {
         updateService(serviceData);
         toast({
           title: "Service updated",
-          description: "Your service details have been updated",
+          description: "Your service details have been updated"
         });
       } else {
         addService(serviceData);
         toast({
           title: "Service added",
-          description: "Your new service has been added to your profile",
+          description: "Your new service has been added to your profile"
         });
       }
       
@@ -159,7 +158,7 @@ const ServiceEditor: React.FC = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {providerServices.map((service) => (
-            <Card key={service.id} className="bg-glass overflow-hidden transition-all duration-300 hover:shadow-glow group">
+            <Card key={service.id} className="bg-glass overflow-hidden transition-all duration-300 hover:shadow-md group">
               <div className="aspect-video relative overflow-hidden">
                 <img 
                   src={service.imageUrl || "https://placehold.co/600x400?text=Service+Image"} 
