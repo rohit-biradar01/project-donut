@@ -38,7 +38,6 @@ const ServiceEditor: React.FC = () => {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [serviceToDelete, setServiceToDelete] = useState<string | null>(null);
   
-  // New service form state
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState<number>(0);
@@ -99,7 +98,6 @@ const ServiceEditor: React.FC = () => {
     
     setIsLoading(true);
     
-    // Create the service object
     const serviceData: Service = {
       id: editingService?.id || `service_${Date.now()}`,
       title,
@@ -109,16 +107,15 @@ const ServiceEditor: React.FC = () => {
       imageUrl: imageUrl || "https://placehold.co/600x400?text=Service+Image",
     };
     
-    // Simulate delay
     setTimeout(() => {
       if (editingService) {
-        updateService(serviceData);
+        updateService(serviceData.id, serviceData);
         toast({
           title: "Service updated",
           description: "Your service details have been updated"
         });
       } else {
-        addService(serviceData);
+        addService(serviceData.id, serviceData);
         toast({
           title: "Service added",
           description: "Your new service has been added to your profile"
@@ -218,7 +215,6 @@ const ServiceEditor: React.FC = () => {
         </div>
       )}
       
-      {/* Service Editor Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="sm:max-w-[500px]">
           <DialogHeader>
@@ -329,7 +325,6 @@ const ServiceEditor: React.FC = () => {
         </DialogContent>
       </Dialog>
       
-      {/* Delete Confirmation Dialog */}
       <Dialog open={showDeleteConfirm} onOpenChange={setShowDeleteConfirm}>
         <DialogContent>
           <DialogHeader>
