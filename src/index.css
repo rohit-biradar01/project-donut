@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://api.fontshare.com/v2/css?f[]=clash-display@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
@@ -228,6 +227,12 @@
   a {
     @apply transition-all duration-300;
   }
+
+  .font-display {
+    font-family: "Clash Display", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji";
+  }
 }
 
 @layer components {
@@ -291,7 +296,6 @@
     @apply relative after:absolute after:inset-0 after:rounded-md after:bg-primary/20 after:opacity-0 hover:after:opacity-100 after:transition-opacity;
   }
 
-  /* Font styles */
   .font-brand {
     @apply font-['Pacifico',_cursive];
   }

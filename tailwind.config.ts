@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -20,6 +21,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         brand: ['Great Vibes', 'cursive'],
+        display: ['"Clash Display"', 'sans-serif'],  // Added display font family
       },
       colors: {
         border: "hsl(var(--border))",
