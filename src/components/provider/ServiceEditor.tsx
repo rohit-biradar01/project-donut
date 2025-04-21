@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { 
   Card, 
@@ -115,7 +116,8 @@ const ServiceEditor: React.FC = () => {
           description: "Your service details have been updated"
         });
       } else {
-        addService(serviceData.id, serviceData);
+        // Fix here - addService expects only the service object
+        addService(serviceData);
         toast({
           title: "Service added",
           description: "Your new service has been added to your profile"
@@ -348,3 +350,4 @@ const ServiceEditor: React.FC = () => {
 };
 
 export default ServiceEditor;
+
