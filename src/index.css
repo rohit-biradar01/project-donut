@@ -245,23 +245,23 @@
   }
   
   .neon-border {
-    @apply border border-neon-purple/50 shadow-glow;
+    @apply border border-primary/50 shadow-glow;
   }
 
   .neon-purple-border {
-    @apply border border-neon-purple/50 shadow-neon-md;
+    @apply border border-primary/50 shadow-neon-md;
   }
 
   .neon-blue-border {
-    @apply border border-neon-blue/50 shadow-neon-blue;
+    @apply border border-primary/50 shadow-neon-blue;
   }
 
   .neon-pink-border {
-    @apply border border-neon-pink/50 shadow-neon-pink;
+    @apply border border-primary/50 shadow-neon-pink;
   }
 
   .neon-cyan-border {
-    @apply border border-neon-cyan/50 shadow-neon-cyan;
+    @apply border border-primary/50 shadow-neon-cyan;
   }
   
   .btn-glow {

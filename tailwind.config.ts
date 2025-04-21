@@ -63,6 +63,17 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        glass: "0 4px 24px 0 rgba(31, 38, 135, 0.2)",
+        glow: "0 0 5px rgba(155, 135, 245, 0.7), 0 0 20px rgba(155, 135, 245, 0.3)",
+        "glow-lg": "0 0 10px rgba(155, 135, 245, 0.7), 0 0 30px rgba(155, 135, 245, 0.5), 0 0 50px rgba(155, 135, 245, 0.3)",
+        "neon-sm": "0 0 5px rgba(155, 135, 245, 0.3), 0 0 20px rgba(155, 135, 245, 0.15)",
+        "neon-md": "0 0 10px rgba(155, 135, 245, 0.5), 0 0 30px rgba(155, 135, 245, 0.2)",
+        "neon-lg": "0 0 15px rgba(155, 135, 245, 0.7), 0 0 40px rgba(155, 135, 245, 0.4), 0 0 60px rgba(155, 135, 245, 0.2)",
+        "neon-blue": "0 0 10px rgba(0, 195, 255, 0.5), 0 0 30px rgba(0, 195, 255, 0.2)",
+        "neon-pink": "0 0 10px rgba(255, 0, 170, 0.5), 0 0 30px rgba(255, 0, 170, 0.2)",
+        "neon-cyan": "0 0 10px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2)",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
