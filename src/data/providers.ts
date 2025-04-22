@@ -5,7 +5,7 @@ import { ServiceProvider } from "@/types";
 export const mockProviders: ServiceProvider[] = [
   {
     id: "p1",
-    alias: "ZenMaster",
+    alias: "Olivia",
     avatar: "https://ibb.co/LXBXBjrb",
     rating: 4.9,
     reviewCount: 124,
