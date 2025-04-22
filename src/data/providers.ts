@@ -5,7 +5,7 @@ export const mockProviders: ServiceProvider[] = [
   {
     id: "p1",
     alias: "Olivia",
-    avatar: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7",
+    avatar: "https://plus.unsplash.com/premium_photo-1682095479898-910b7e451779?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     rating: 4.9,
     reviewCount: 124,
     pricePerHour: 120,
@@ -65,9 +65,9 @@ export const mockProviders: ServiceProvider[] = [
       }
     ],
     gallery: [
-      "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2",
-      "https://images.unsplash.com/photo-1544161515-4ab6ce6db874",
-      "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881"
+      "https://plus.unsplash.com/premium_photo-1682095829263-596d331f6326?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1664476441580-33db0d93c11a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1682095222067-70901ec51db7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ]
   },
   {
