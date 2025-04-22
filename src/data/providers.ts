@@ -72,8 +72,8 @@ export const mockProviders: ServiceProvider[] = [
   },
   {
     id: "p2",
-    alias: "WellnessGuide",
-    avatar: "/avatars/provider-2.webp",
+    alias: "Mia",
+    avatar: "https://plus.unsplash.com/premium_photo-1668896122554-2a4456667f65?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     rating: 4.8,
     reviewCount: 98,
     pricePerHour: 90,
@@ -120,14 +120,14 @@ export const mockProviders: ServiceProvider[] = [
       }
     ],
     gallery: [
-      "/service-images/nutrition-1.webp",
-      "/service-images/nutrition-2.webp"
+      "https://plus.unsplash.com/premium_photo-1668896123844-65224cf19b74?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1669824376681-2a999a6facb0?q=80&w=1966&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ]
   },
   {
     id: "p3",
     alias: "TechWizard",
-    avatar: "/avatars/provider-3.webp",
+    avatar: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=1727&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     rating: 4.7,
     reviewCount: 56,
     pricePerHour: 75,
@@ -180,14 +180,14 @@ export const mockProviders: ServiceProvider[] = [
       }
     ],
     gallery: [
-      "/service-images/tech-1.webp",
-      "/service-images/tech-2.webp"
+      "https://images.unsplash.com/photo-1502163140606-888448ae8cfe?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1533407411655-dcce1534c1a6?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ]
   },
   {
     id: "p4",
     alias: "FitPro",
-    avatar: "/avatars/provider-4.webp",
+    avatar: "https://images.unsplash.com/photo-1738525052612-f6fc76e7c3f9?q=80&w=1949&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     rating: 4.9,
     reviewCount: 201,
     pricePerHour: 95,
@@ -234,15 +234,15 @@ export const mockProviders: ServiceProvider[] = [
       }
     ],
     gallery: [
-      "/service-images/fitness-1.webp",
-      "/service-images/fitness-2.webp",
-      "/service-images/fitness-3.webp"
+      "https://images.unsplash.com/photo-1738525052787-685a1d64f8bf?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1738525052282-900818c83635?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1738525052373-9df8344872d8?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ]
   },
   {
     id: "p5",
     alias: "NightOwlTutor",
-    avatar: "/avatars/provider-5.webp",
+    avatar: "https://images.unsplash.com/photo-1624254009481-48e3b123b59f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     rating: 4.8,
     reviewCount: 87,
     pricePerHour: 60,
@@ -295,13 +295,13 @@ export const mockProviders: ServiceProvider[] = [
       }
     ],
     gallery: [
-      "/service-images/tutor-1.webp",
-      "/service-images/tutor-2.webp"
+      "https://images.unsplash.com/photo-1624254009687-99700bc5987f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1624254009485-bdf7ad59579e?q=80&w=1980&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ]
   },
   {
     id: "p6",
-    alias: "ChefExtraordinaire",
+    alias: "HannahOWO",
     avatar: "/avatars/provider-6.webp",
     rating: 5.0,
     reviewCount: 42,
