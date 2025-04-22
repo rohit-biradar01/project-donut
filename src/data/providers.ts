@@ -6,7 +6,7 @@ export const mockProviders: ServiceProvider[] = [
   {
     id: "p1",
     alias: "ZenMaster",
-    avatar: "https://ibb.co/T5dfyTT",
+    avatar: "https://ibb.co/LXBXBjrb",
     rating: 4.9,
     reviewCount: 124,
     pricePerHour: 120,
@@ -66,8 +66,8 @@ export const mockProviders: ServiceProvider[] = [
       }
     ],
     gallery: [
-      "/service-images/massage-1.webp",
-      "/service-images/massage-2.webp",
+      "https://ibb.co/xtHpLS6T",
+      "https://ibb.co/T5dfyTT",
       "/service-images/massage-3.webp"
     ]
   },
