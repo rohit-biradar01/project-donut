@@ -6,7 +6,7 @@ export const mockProviders: ServiceProvider[] = [
   {
     id: "p1",
     alias: "ZenMaster",
-    avatar: "/avatars/provider-1.webp",
+    avatar: "https://ibb.co/T5dfyTT",
     rating: 4.9,
     reviewCount: 124,
     pricePerHour: 120,
