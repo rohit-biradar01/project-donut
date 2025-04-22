@@ -31,6 +31,11 @@ const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onSwipe, classNam
       }, 500);
     }
   };
+
+  // Add error handling for image loading
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = "https://placehold.co/400x500?text=Profile+Image";
+  };
   
   return (
     <div 
@@ -46,6 +51,7 @@ const ProviderCard: React.FC<ProviderCardProps> = ({ provider, onSwipe, classNam
             src={provider.avatar} 
             alt={provider.alias}
             className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+            onError={handleImageError}
           />
           <button
             onClick={handleFavorite}

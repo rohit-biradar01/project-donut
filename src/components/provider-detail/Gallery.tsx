@@ -20,6 +20,11 @@ const Gallery: React.FC<GalleryProps> = ({ provider }) => {
     setActiveIndex(prev => (prev - 1 + provider.gallery.length) % provider.gallery.length);
   };
   
+  // Add error handling for image loading
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = "https://placehold.co/600x400?text=Image+Not+Found";
+  };
+  
   return (
     <div className="mt-12 animate-fade-in" style={{ animationDelay: "0.4s" }}>
       <h2 className="font-display text-2xl font-bold mb-4">Gallery</h2>
@@ -38,6 +43,7 @@ const Gallery: React.FC<GalleryProps> = ({ provider }) => {
               src={image} 
               alt={`${provider.alias} gallery ${index + 1}`}
               className="w-full h-full object-cover"
+              onError={handleImageError}
             />
           </div>
         ))}
@@ -60,6 +66,7 @@ const Gallery: React.FC<GalleryProps> = ({ provider }) => {
                 src={provider.gallery[activeIndex]} 
                 alt={`${provider.alias} gallery ${activeIndex + 1}`}
                 className="w-full h-full object-contain"
+                onError={handleImageError}
               />
               
               <div className="absolute inset-0 flex items-center justify-between p-4">

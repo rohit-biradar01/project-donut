@@ -12,6 +12,11 @@ interface ProviderHeaderProps {
 const ProviderHeader: React.FC<ProviderHeaderProps> = ({ provider }) => {
   const { toggleFavorite, isFavorite } = useApp();
   
+  // Add error handling for image loading
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = "https://placehold.co/400x400?text=Provider+Image";
+  };
+  
   return (
     <div className="relative flex flex-col md:flex-row gap-6 animate-fade-in">
       <div className="md:w-1/3">
@@ -20,6 +25,7 @@ const ProviderHeader: React.FC<ProviderHeaderProps> = ({ provider }) => {
             src={provider.avatar} 
             alt={provider.alias}
             className="w-full h-full object-cover"
+            onError={handleImageError}
           />
         </div>
       </div>
