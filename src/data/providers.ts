@@ -302,7 +302,7 @@ export const mockProviders: ServiceProvider[] = [
   {
     id: "p6",
     alias: "HannahOWO",
-    avatar: "/avatars/provider-6.webp",
+    avatar: "https://images.unsplash.com/photo-1708533897366-f84863c9e0bc?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     rating: 5.0,
     reviewCount: 42,
     pricePerHour: 150,
@@ -349,15 +349,15 @@ export const mockProviders: ServiceProvider[] = [
       }
     ],
     gallery: [
-      "/service-images/chef-1.webp",
-      "/service-images/chef-2.webp",
-      "/service-images/chef-3.webp"
+      "https://images.unsplash.com/photo-1708533899500-1b35fc8e5d7c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1708534271613-fda4319c7cb0?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1708534272261-2c1b10e9d85c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ]
   },
   {
     id: "p7",
     alias: "MindfulCoach",
-    avatar: "/avatars/provider-7.webp",
+    avatar: "https://plus.unsplash.com/premium_photo-1668790366390-988fef927c42?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     rating: 4.9,
     reviewCount: 115,
     pricePerHour: 110,
@@ -410,14 +410,14 @@ export const mockProviders: ServiceProvider[] = [
       }
     ],
     gallery: [
-      "/service-images/mindfulness-1.webp",
-      "/service-images/mindfulness-2.webp"
+      "https://plus.unsplash.com/premium_photo-1668896123988-b1566bb54579?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1668895511240-e404d63a1758?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ]
   },
   {
     id: "p8",
     alias: "CleaningPro",
-    avatar: "/avatars/provider-8.webp",
+    avatar: "https://plus.unsplash.com/premium_photo-1668485968519-d91bfed11baf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
     rating: 4.7,
     reviewCount: 203,
     pricePerHour: 45,
@@ -470,14 +470,14 @@ export const mockProviders: ServiceProvider[] = [
       }
     ],
     gallery: [
-      "/service-images/cleaning-1.webp",
-      "/service-images/cleaning-2.webp"
+      "https://plus.unsplash.com/premium_photo-1675200124904-dfadce24119f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1668485968521-4e182e8093d8?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ]
   },
   {
     id: "p9",
     alias: "CodeNinja",
-    avatar: "/avatars/provider-9.webp",
+    avatar: "https://images.unsplash.com/photo-1674451089045-31d5cdc4d55d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     rating: 4.8,
     reviewCount: 67,
     pricePerHour: 85,
@@ -530,14 +530,14 @@ export const mockProviders: ServiceProvider[] = [
       }
     ],
     gallery: [
-      "/service-images/coding-1.webp",
-      "/service-images/coding-2.webp"
+      "https://images.unsplash.com/photo-1674504176007-d2f55cd47ad4?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1689885499177-b09b6ac980d1?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ]
   },
   {
     id: "p10",
     alias: "InteriorVisionary",
-    avatar: "/avatars/provider-10.webp",
+    avatar: "https://images.unsplash.com/photo-1599557852963-e75339deda18?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     rating: 4.9,
     reviewCount: 88,
     pricePerHour: 125,
@@ -590,9 +590,9 @@ export const mockProviders: ServiceProvider[] = [
       }
     ],
     gallery: [
-      "/service-images/interior-1.webp",
-      "/service-images/interior-2.webp",
-      "/service-images/interior-3.webp"
+      "https://images.unsplash.com/photo-1599329994698-6dff6031c553?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE3fHx8ZW58MHx8fHx8",
+      "https://images.unsplash.com/photo-1599329994306-40c32dffc8a2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8",
+      "https://images.unsplash.com/photo-1599329602271-8ed6196b6b21?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDM1fHx8ZW58MHx8fHx8"
     ]
   }
 ];
