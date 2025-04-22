@@ -6,7 +6,7 @@ export const mockProviders: ServiceProvider[] = [
   {
     id: "p1",
     alias: "Olivia",
-    avatar: "https://ibb.co/LXBXBjrb",
+    avatar: "https://imagekit.io/tools/asset-public-link?detail=%7B%22name%22%3A%22girls_profile_pic_for_dating_a%20(1).jpeg%22%2C%22type%22%3A%22image%2Fjpeg%22%2C%22signedurl_expire%22%3A%222028-04-21T09%3A33%3A17.933Z%22%2C%22signedUrl%22%3A%22https%3A%2F%2Fmedia-hosting.imagekit.io%2F28d44f28a41a428b%2Fgirls_profile_pic_for_dating_a%2520(1).jpeg%3FExpires%3D1839922398%26Key-Pair-Id%3DK2ZIVPTIP2VGHC%26Signature%3Daj6qPC~Jj~szZAVgO9egHHqX~LWHk3UbB7flI54r38g2qXpaUTfG8jDWWxOdipaqX-2oLL0S27hfeErQUrPRxN9vvJyg4zniwQscQEMNYKgmeGRFwq6e6EIh-ixFDDyuxv~HOm~BQd~wDWQ0On5qo6584qCCac9-mZoRhBECXjlOQHlj9gB1IEai3mmch-E1N0kCgIIdptWTcrzteE8UnJAJHGtmx2IOqc-AtGf28aBZFIvrXQJgSzLw5NByXJ3jC3UZwE-5h7DuXyMsJ4E51ti2phI59PxDUTLj5ru9d8~rnUCedoXvMUUSo0QLGrgzb3mngOTCV7SbcY3GnvPKWQ__%22%7D",
     rating: 4.9,
     reviewCount: 124,
     pricePerHour: 120,
