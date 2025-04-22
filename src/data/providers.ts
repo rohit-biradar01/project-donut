@@ -11,28 +11,28 @@ export const mockProviders: ServiceProvider[] = [
     pricePerHour: 120,
     location: "New York",
     tags: ["Deep Tissue", "In-Person", "Mobile", "Evening"],
-    bio: "Specializing in deep tissue and therapeutic massage with over 10 years of experience. I focus on relieving chronic pain and stress.",
+    bio: "I hold space for softness. Whether it's your first time or your hundredth, I'm here to make you feel safe, seen, and respected. I’m all about emotional intelligence, gentle intimacy, and kind conversation. Let’s move slow, if you like.",
     services: [
       {
         id: "s1",
-        title: "Deep Tissue Massage",
+        title: "Companionship",
         price: 120,
         duration: 60,
-        description: "Intense pressure massage targeting deep muscle tissue to release chronic tension."
+        description: "A non-sexual, emotionally enriching experience centered around presence and conversation. Whether it's a walk, a meal, or deep chats over coffee, companionship provides warmth, laughter, and connection without pressure."
       },
       {
         id: "s2",
-        title: "Swedish Relaxation",
+        title: "Massage Therapy",
         price: 100,
         duration: 60,
-        description: "Gentle, flowing strokes to promote relaxation and stress relief."
+        description: "A nurturing, slow session focused on grounding and soothing."
       },
       {
         id: "s3",
-        title: "Sports Recovery",
+        title: "Sensual Conversation",
         price: 140,
         duration: 90,
-        description: "Focused therapy for athletes to improve performance and speed up recovery."
+        description: "Flirty, emotionally honest chats."
       }
     ],
     availability: {
@@ -79,21 +79,21 @@ export const mockProviders: ServiceProvider[] = [
     pricePerHour: 90,
     location: "Los Angeles",
     tags: ["Holistic", "Virtual", "Wellness", "Morning"],
-    bio: "Certified wellness coach offering personalized nutrition and lifestyle guidance. I help clients achieve their health goals through sustainable practices.",
+    bio: "I'm not here to perform — I'm here to co-create sacred connection. My background in tantra and breathwork shapes every session. You’ll leave lighter, clearer, more grounded in your body. Curious souls welcome.",
     services: [
       {
         id: "s4",
-        title: "Nutrition Consultation",
+        title: "Roleplay & Fantasy Scenarios",
         price: 90,
         duration: 60,
-        description: "Customized nutrition plan based on your health goals and dietary preferences."
+        description: "Sacred or themed experiences"
       },
       {
         id: "s5",
-        title: "Wellness Coaching Session",
+        title: "Erotic Massage",
         price: 85,
         duration: 45,
-        description: "Holistic approach to improving your overall wellbeing through lifestyle adjustments."
+        description: "Oil-based, consent-driven connection"
       }
     ],
     availability: {
@@ -133,21 +133,21 @@ export const mockProviders: ServiceProvider[] = [
     pricePerHour: 75,
     location: "Remote",
     tags: ["Tech Support", "Virtual", "24/7", "Immediate"],
-    bio: "Expert tech support for all your device and software needs. Available remotely to solve problems quickly and efficiently.",
+    bio: "I'm the friend who holds your secrets, the flirt who never pushes. I love slow mornings, long voice notes, and catching people mid-laughter. This is a no-pressure zone — just real vibes and clear communication.",
     services: [
       {
         id: "s6",
-        title: "Tech Troubleshooting",
+        title: "Online Intimacy",
         price: 75,
         duration: 60,
-        description: "Diagnosis and resolution of computer, smartphone, or software issues."
+        description: "Virtual flirty time"
       },
       {
         id: "s7",
-        title: "Smart Home Setup",
+        title: "Safe Space Emotional Support",
         price: 120,
         duration: 90,
-        description: "Complete configuration of your smart home devices and automation systems."
+        description: "Present and pressure-free"
       }
     ],
     availability: {
@@ -193,21 +193,21 @@ export const mockProviders: ServiceProvider[] = [
     pricePerHour: 95,
     location: "Chicago",
     tags: ["Fitness", "In-Person", "Virtual", "Motivational"],
-    bio: "Certified personal trainer specializing in strength training, weight loss, and rehabilitation. Customized programs to meet your specific fitness goals.",
+    bio: "I’m fluid, fierce, and full of sparkle. I don’t fit boxes, and neither should our connection. I believe in queer joy, body neutrality, and mutual delight. You bring your real — I’ll bring mine",
     services: [
       {
         id: "s8",
-        title: "Personal Training Session",
+        title: "Sensual Bodywork",
         price: 95,
         duration: 60,
-        description: "One-on-one training session tailored to your fitness level and goals."
+        description: "Sensual, safe, slow."
       },
       {
         id: "s9",
-        title: "Nutrition & Workout Plan",
+        title: "GFE",
         price: 150,
         duration: 90,
-        description: "Comprehensive fitness and nutrition strategy designed for your specific needs."
+        description: "Affectionate emotional presence"
       }
     ],
     availability: {
@@ -248,21 +248,21 @@ export const mockProviders: ServiceProvider[] = [
     pricePerHour: 60,
     location: "Remote",
     tags: ["Academic", "Virtual", "Late Night", "Sciences"],
-    bio: "PhD in Physics offering advanced tutoring in math and sciences. Specializing in university-level courses and exam preparation.",
+    bio: "Night owl, daydreamer, keeper of whispered wishes. I blend sensuality with soul — slow touches, sultry laughs, and safe space for all your shades. I don’t just show up; I arrive.",
     services: [
       {
         id: "s10",
-        title: "Math & Physics Tutoring",
+        title: "Online Intimacy",
         price: 60,
         duration: 60,
-        description: "Expert guidance for calculus, physics, and other advanced STEM subjects."
+        description: "Tease and play remotely"
       },
       {
         id: "s11",
-        title: "Exam Prep Package",
+        title: "Roleplay & Fantasy Scenarios",
         price: 250,
         duration: 240,
-        description: "Four-session intensive preparation for standardized tests or final exams."
+        description: "Creative gender-play."
       }
     ],
     availability: {
@@ -308,21 +308,21 @@ export const mockProviders: ServiceProvider[] = [
     pricePerHour: 150,
     location: "Miami",
     tags: ["Culinary", "In-Person", "Premium", "Dietary Needs"],
-    bio: "Former restaurant chef now offering private dining experiences. I create memorable meals in your home with focus on seasonal, local ingredients.",
+    bio: "My curves tell stories. My eyes know how to listen. Whether we’re laughing over chai or exploring a fantasy, I’ll make sure you feel desired without needing to perform.",
     services: [
       {
         id: "s12",
-        title: "Private Dinner Experience",
+        title: "GFE",
         price: 150,
         duration: 180,
-        description: "Three-course gourmet meal prepared in your home for 2-8 guests."
+        description: "Soft, romantic touch"
       },
       {
         id: "s13",
-        title: "Cooking Class",
+        title: "Kink / BDSM Sessions",
         price: 200,
         duration: 180,
-        description: "Interactive cooking lesson for up to 4 people, including meal and wine pairing."
+        description: "Light domination & control"
       }
     ],
     availability: {
@@ -363,21 +363,21 @@ export const mockProviders: ServiceProvider[] = [
     pricePerHour: 110,
     location: "Seattle",
     tags: ["Mindfulness", "Virtual", "Stress Relief", "Corporate"],
-    bio: "Licensed therapist specializing in mindfulness techniques for stress management and mental wellbeing. I help clients develop sustainable practices for lasting balance.",
+    bio: "Consent is my kink. Connection is my compass. I offer sessions where you're held, heard, and never pushed. Whether you're curious about kink or just want someone to witness you — I’m here for that.",
     services: [
       {
         id: "s14",
-        title: "Individual Mindfulness Session",
+        title: "Education / Exploration Coaching",
         price: 110,
         duration: 60,
-        description: "Personalized mindfulness coaching with techniques for your specific challenges."
+        description: " Learn with practice."
       },
       {
         id: "s15",
-        title: "Corporate Wellness Workshop",
+        title: "Mutual Intimacy",
         price: 500,
         duration: 120,
-        description: "Group session for teams of up to 15 people to improve workplace wellbeing."
+        description: "Shared sensuality, no pressure"
       }
     ],
     availability: {
@@ -423,21 +423,21 @@ export const mockProviders: ServiceProvider[] = [
     pricePerHour: 45,
     location: "Boston",
     tags: ["Cleaning", "In-Person", "Eco-Friendly", "Same-Day"],
-    bio: "Professional house cleaning service with attention to detail. Using eco-friendly products and efficient techniques to transform your space.",
+    bio: "I’m a switch with a heart of code. I build bridges — between minds, between bodies, between what you think you want and what you deeply crave. Brainy, bratty, and big on boundaries.",
     services: [
       {
         id: "s16",
-        title: "Standard Home Cleaning",
+        title: "Striptease / Private Dance",
         price: 45,
         duration: 120,
-        description: "Thorough cleaning of kitchen, bathrooms, living areas, and bedrooms."
+        description: "Teasing, nerdy performance"
       },
       {
         id: "s17",
-        title: "Deep Cleaning Service",
+        title: "Safe Space Emotional Support",
         price: 65,
         duration: 240,
-        description: "Intensive cleaning including inside appliances, baseboards, and detailed bathroom scrubbing."
+        description: "No-shame emotional care"
       }
     ],
     availability: {
@@ -476,28 +476,28 @@ export const mockProviders: ServiceProvider[] = [
   },
   {
     id: "p9",
-    alias: "CodeNinja",
+    alias: "Ayesha",
     avatar: "https://images.unsplash.com/photo-1674451089045-31d5cdc4d55d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     rating: 4.8,
     reviewCount: 67,
     pricePerHour: 85,
     location: "Remote",
     tags: ["Programming", "Virtual", "Web Development", "Mobile Apps"],
-    bio: "Full-stack developer with 8+ years experience. Specializing in React, Node.js, and mobile development for businesses and startups.",
+    bio: "Silky voice, steady hands, and a curious heart. I love helping people drop their masks and reconnect with pleasure and presence. Sensuality is not a performance — it’s a conversation. And I’m a good listener.",
     services: [
       {
         id: "s18",
-        title: "Web Development Consultation",
+        title: "Mutual Intimacy",
         price: 85,
         duration: 60,
-        description: "Technical guidance, code review, and solutions for your web development challenges."
+        description: "Shared touch and warmth with respect for all boundaries"
       },
       {
         id: "s19",
-        title: "Custom Feature Development",
+        title: "Fetish-Friendly Sessions",
         price: 500,
         duration: 0,
-        description: "Implementation of specific features for your website or application. Price per feature."
+        description: "Soft domination, foot focus, or guided exploration"
       }
     ],
     availability: {
@@ -536,28 +536,28 @@ export const mockProviders: ServiceProvider[] = [
   },
   {
     id: "p10",
-    alias: "InteriorVisionary",
+    alias: "Tia",
     avatar: "https://images.unsplash.com/photo-1599557852963-e75339deda18?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     rating: 4.9,
     reviewCount: 88,
     pricePerHour: 125,
     location: "Denver",
     tags: ["Interior Design", "In-Person", "Virtual", "Sustainable"],
-    bio: "Interior designer with a focus on sustainable, beautiful spaces that reflect your personality and needs. From single rooms to entire homes.",
+    bio: "I’m a writer, a dreamer, and a soft switch with a sharp mind. I offer both nurturing connection and playful tension. Every session is a co-authored story — we set the tone together. I’m here for depth, desire, and deep breaths.",
     services: [
       {
         id: "s20",
-        title: "Design Consultation",
+        title: "Companionship",
         price: 125,
         duration: 90,
-        description: "In-home assessment with color schemes, furniture layout, and styling recommendations."
+        description: "Story-rich presence, whether at a cafe or curled up inside"
       },
       {
         id: "s21",
-        title: "Full Room Design Package",
+        title: "Education / Exploration Coaching",
         price: 750,
         duration: 0,
-        description: "Complete design plan including furniture selection, color scheme, accessories, and implementation guidance."
+        description: "Guidance for newbies, soft domme dynamics, consent skills"
       }
     ],
     availability: {
