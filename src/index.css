@@ -8,53 +8,51 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 72% 51%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 0 72% 51%;
-    --accent-foreground: 0 0% 98%;
+    --background: 0 0% 0%;
+    --foreground: 0 100% 45%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 100% 45%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 100% 45%;
+    --primary: 0 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 4%;
+    --secondary-foreground: 0 100% 45%;
+    --muted: 0 0% 4%;
+    --muted-foreground: 0 72% 51%;
+    --accent: 0 100% 45%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
+    --border: 0 72% 51%;
+    --input: 0 0% 4%;
     --ring: 0 72% 51%;
     --radius: 0.75rem;
   }
 
   .dark {
-    /* Enhanced dark mode with red accents */
     --background: 0 0% 0%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 72% 51%;
+    --foreground: 0 100% 45%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 100% 45%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 100% 45%;
+    --primary: 0 100% 45%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 8%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 8%;
-    --muted-foreground: 0 0% 63%;
-    --accent: 0 72% 51%;
+    --secondary: 0 0% 4%;
+    --secondary-foreground: 0 100% 45%;
+    --muted: 0 0% 4%;
+    --muted-foreground: 0 72% 51%;
+    --accent: 0 100% 45%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 72% 51%;
-    --input: 0 0% 8%;
+    --input: 0 0% 4%;
     --ring: 0 72% 51%;
   }
 
   .pastel {
-    /* Light pastel theme */
     --background: 60 80% 99%;
     --foreground: 240 10% 20%;
     --card: 60 100% 99%;
@@ -77,7 +75,6 @@
   }
 
   .gradient {
-    /* Enhanced gradient bold theme */
     --background: 260 20% 12%;
     --foreground: 0 0% 100%;
     --card: 260 20% 18%;
@@ -99,7 +96,6 @@
     --ring: 230 100% 70%;
   }
 
-  /* New Themes */
   .neon-blue {
     --background: 220 25% 8%;
     --foreground: 0 0% 98%;
@@ -200,7 +196,6 @@
     @apply text-xl md:text-2xl;
   }
 
-  /* Enhanced element styling */
   button, 
   .btn, 
   [type="button"] {
@@ -211,7 +206,6 @@
     @apply transition-all duration-300;
   }
 
-  /* FONT CUSTOM CLASSES - must be class selectors, NOT @apply */
   .font-display {
     font-family: "Clash Display", system-ui, -apple-system, BlinkMacSystemFont,
       "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
@@ -284,12 +278,10 @@
   }
 }
 
-/* Enhanced Glassmorphism styles */
 .bg-glass {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(229, 9, 20, 0.2);
 }
 
 .dark .bg-glass {
@@ -312,46 +304,6 @@
   border: 1px solid rgba(190, 120, 255, 0.2);
 }
 
-/* Enhanced animations */
-.animate-in {
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Interactive button effects */
-.button-glow {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.button-glow::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(155, 135, 245, 0.3), transparent);
-  transition: 0.6s;
-  z-index: -1;
-}
-
-.button-glow:hover::after {
-  left: 100%;
-}
-
-/* Enhanced Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -362,12 +314,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted));
-  border-radius: 4px;
+  background: rgba(229, 9, 20, 0.3);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground));
+  background: rgba(229, 9, 20, 0.5);
 }
 
 .dark ::-webkit-scrollbar-thumb {
@@ -390,7 +341,6 @@
   background: rgba(190, 120, 255, 0.3);
 }
 
-/* Neon text effect */
 .neon-text {
   text-shadow: 0 0 5px rgba(155, 135, 245, 0.7), 
                0 0 10px rgba(155, 135, 245, 0.5), 
@@ -415,7 +365,6 @@
                0 0 15px rgba(190, 120, 255, 0.3);
 }
 
-/* Shadow effects for different themes */
 .neon-blue .shadow-neon-sm {
   box-shadow: 0 0 5px rgba(0, 195, 255, 0.3),
               0 0 20px rgba(0, 195, 255, 0.15);
@@ -446,12 +395,10 @@
               0 0 30px rgba(190, 120, 255, 0.2);
 }
 
-/* Improved neon glow for buttons and UI elements */
 .btn-primary {
   @apply relative inline-flex items-center justify-center overflow-hidden rounded-md bg-primary px-4 py-2 font-medium text-primary-foreground shadow-neon-red transition-all hover:shadow-neon-red-md hover:scale-105 active:scale-95;
 }
 
-/* Animation for floating elements */
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -468,7 +415,6 @@
   animation: float 4s ease-in-out infinite;
 }
 
-/* Text shimmer animation */
 @keyframes text-shimmer {
   0% { background-position: -100% 0; }
   100% { background-position: 100% 0; }
@@ -478,7 +424,6 @@
   animation: text-shimmer 4s linear infinite;
 }
 
-/* Slow pulse animation */
 @keyframes pulse-slow {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.7; }
@@ -488,7 +433,6 @@
   animation: pulse-slow 3s ease-in-out infinite;
 }
 
-/* Glow pulse animation */
 @keyframes glow-pulse {
   0%, 100% { filter: drop-shadow(0 0 8px rgba(var(--color-primary), 0.7)); }
   50% { filter: drop-shadow(0 0 16px rgba(var(--color-primary), 0.9)); }
