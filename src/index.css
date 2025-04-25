@@ -8,66 +8,49 @@
 
 @layer base {
   :root {
-    /* Light mode - default */
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 259 60% 75%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 72% 51%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 72% 51%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 259 60% 75%;
-    --radius: 1rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 72% 51%;
+    --radius: 0.75rem;
   }
 
   .dark {
-    /* Enhanced dark mode with more vivid neon accents */
-    --background: 240 10% 8%;
+    /* Enhanced dark mode with red accents */
+    --background: 0 0% 0%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 10%;
+    --card: 0 0% 3%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 8%;
+    --popover: 0 0% 3%;
     --popover-foreground: 0 0% 98%;
-    --primary: 259 80% 75%;
+    --primary: 0 72% 51%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 240 5% 15%;
+    --secondary: 0 0% 8%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 5% 15%;
-    --muted-foreground: 240 5% 65%;
-    --accent: 259 80% 75%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 0 72% 51%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 50.6%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5% 15%;
-    --input: 240 5% 15%;
-    --ring: 259 80% 75%;
-    --sidebar-background: 240 10% 6%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 259 80% 75%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 5% 15%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 5% 15%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 0 72% 51%;
+    --input: 0 0% 8%;
+    --ring: 0 72% 51%;
   }
 
   .pastel {
@@ -241,15 +224,15 @@
 
 @layer components {
   .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-glass;
+    @apply bg-black/10 backdrop-blur-md border border-primary/20 rounded-2xl shadow-glass-red;
   }
   
   .glass-card {
-    @apply glass hover:shadow-neon-sm transition-shadow duration-300;
+    @apply glass hover:shadow-neon-red transition-shadow duration-300;
   }
   
   .neon-border {
-    @apply border border-primary/50 shadow-glow;
+    @apply border border-primary/50 shadow-neon-red;
   }
 
   .neon-purple-border {
@@ -269,11 +252,11 @@
   }
   
   .btn-glow {
-    @apply relative overflow-hidden rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-glow transition-all hover:shadow-glow-lg hover:scale-105 active:scale-95;
+    @apply relative overflow-hidden rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-neon-red transition-all hover:shadow-neon-red-md hover:scale-105 active:scale-95;
   }
 
   .btn-neon {
-    @apply relative overflow-hidden rounded-md bg-transparent border border-primary/50 px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-neon-sm transition-all hover:shadow-neon-md hover:border-primary hover:scale-105 active:scale-95;
+    @apply relative overflow-hidden rounded-md bg-transparent border border-primary/50 px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-neon-red transition-all hover:shadow-neon-red-md hover:border-primary hover:scale-105 active:scale-95;
   }
   
   .tag {
@@ -465,7 +448,7 @@
 
 /* Improved neon glow for buttons and UI elements */
 .btn-primary {
-  @apply relative inline-flex items-center justify-center overflow-hidden rounded-md bg-primary px-4 py-2 font-medium text-primary-foreground shadow-neon-sm transition-all hover:shadow-neon-md hover:scale-105 active:scale-95;
+  @apply relative inline-flex items-center justify-center overflow-hidden rounded-md bg-primary px-4 py-2 font-medium text-primary-foreground shadow-neon-red transition-all hover:shadow-neon-red-md hover:scale-105 active:scale-95;
 }
 
 /* Animation for floating elements */

@@ -1,4 +1,3 @@
-
 import { type Config } from "tailwindcss";
 
 export default {
@@ -57,7 +56,6 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        // Add custom shadow definitions
         'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
         'glow': '0 0 10px rgba(155, 135, 245, 0.5)',
         'glow-lg': '0 0 20px rgba(155, 135, 245, 0.7)',
@@ -66,6 +64,9 @@ export default {
         'neon-blue': '0 0 10px rgba(0, 195, 255, 0.5), 0 0 30px rgba(0, 195, 255, 0.2)',
         'neon-pink': '0 0 10px rgba(255, 0, 170, 0.5), 0 0 30px rgba(255, 0, 170, 0.2)',
         'neon-cyan': '0 0 10px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2)',
+        'neon-red': '0 0 5px rgba(229, 9, 20, 0.3), 0 0 20px rgba(229, 9, 20, 0.15)',
+        'neon-red-md': '0 0 10px rgba(229, 9, 20, 0.5), 0 0 30px rgba(229, 9, 20, 0.2)',
+        'glass-red': '0 8px 32px 0 rgba(229, 9, 20, 0.2)',
       },
       keyframes: {
         "accordion-down": {
