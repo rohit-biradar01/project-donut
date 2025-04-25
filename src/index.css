@@ -8,158 +8,26 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 100% 45%;
-    --card: 0 0% 0%;
-    --card-foreground: 0 100% 45%;
-    --popover: 0 0% 0%;
-    --popover-foreground: 0 100% 45%;
-    --primary: 0 100% 45%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 4%;
-    --secondary-foreground: 0 100% 45%;
-    --muted: 0 0% 4%;
-    --muted-foreground: 0 72% 51%;
-    --accent: 0 100% 45%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 72% 51%;
-    --input: 0 0% 4%;
-    --ring: 0 72% 51%;
-    --radius: 0.75rem;
-  }
-
-  .dark {
-    --background: 0 0% 0%;
-    --foreground: 0 100% 45%;
-    --card: 0 0% 0%;
-    --card-foreground: 0 100% 45%;
-    --popover: 0 0% 0%;
-    --popover-foreground: 0 100% 45%;
-    --primary: 0 100% 45%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 4%;
-    --secondary-foreground: 0 100% 45%;
-    --muted: 0 0% 4%;
-    --muted-foreground: 0 72% 51%;
-    --accent: 0 100% 45%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 72% 51%;
-    --input: 0 0% 4%;
-    --ring: 0 72% 51%;
-  }
-
-  .pastel {
-    --background: 60 80% 99%;
-    --foreground: 240 10% 20%;
-    --card: 60 100% 99%;
-    --card-foreground: 240 10% 20%;
-    --popover: 60 80% 99%;
-    --popover-foreground: 240 10% 20%;
-    --primary: 340 100% 95%;
-    --primary-foreground: 340 50% 30%;
-    --secondary: 220 100% 95%;
-    --secondary-foreground: 220 50% 30%;
-    --muted: 60 100% 96%;
-    --muted-foreground: 240 10% 40%;
-    --accent: 260 100% 95%;
-    --accent-foreground: 260 50% 30%;
-    --destructive: 0 100% 95%;
-    --destructive-foreground: 0 50% 30%;
-    --border: 60 100% 90%;
-    --input: 60 100% 90%;
-    --ring: 340 100% 90%;
-  }
-
-  .gradient {
-    --background: 260 20% 12%;
-    --foreground: 0 0% 100%;
-    --card: 260 20% 18%;
-    --card-foreground: 0 0% 100%;
-    --popover: 260 20% 12%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 230 100% 70%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 260 100% 70%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 260 20% 25%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 290 100% 70%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 100% 70%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 260 20% 25%;
-    --input: 260 20% 25%;
-    --ring: 230 100% 70%;
-  }
-
-  .neon-blue {
-    --background: 220 25% 8%;
+    --background: 0 0% 10%;
     --foreground: 0 0% 98%;
-    --card: 220 25% 10%;
+    --card: 0 0% 12%;
     --card-foreground: 0 0% 98%;
-    --popover: 220 25% 8%;
+    --popover: 0 0% 10%;
     --popover-foreground: 0 0% 98%;
-    --primary: 199 95% 70%;
+    --primary: 0 93% 47%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 20% 15%;
+    --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 220 20% 15%;
-    --muted-foreground: 220 20% 65%;
-    --accent: 199 95% 70%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 93% 47%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 50.6%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 20% 15%;
-    --input: 220 20% 15%;
-    --ring: 199 95% 70%;
-  }
-
-  .hot-pink {
-    --background: 334 15% 8%;
-    --foreground: 0 0% 98%;
-    --card: 334 15% 10%;
-    --card-foreground: 0 0% 98%;
-    --popover: 334 15% 8%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 330 95% 70%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 334 20% 15%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 334 20% 15%;
-    --muted-foreground: 334 10% 65%;
-    --accent: 330 95% 70%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 50.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 334 20% 15%;
-    --input: 334 20% 15%;
-    --ring: 330 95% 70%;
-  }
-
-  .cyber-purple {
-    --background: 270 20% 8%;
-    --foreground: 0 0% 98%;
-    --card: 270 20% 10%;
-    --card-foreground: 0 0% 98%;
-    --popover: 270 20% 8%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 280 95% 70%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 270 20% 15%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 270 20% 15%;
-    --muted-foreground: 270 10% 65%;
-    --accent: 280 95% 70%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 50.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 270 20% 15%;
-    --input: 270 20% 15%;
-    --ring: 280 95% 70%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 93% 47%;
+    --radius: 0.5rem;
   }
 }
 
@@ -222,35 +90,19 @@
   }
   
   .glass-card {
-    @apply glass hover:shadow-neon-red transition-shadow duration-300;
+    @apply glass hover:shadow-neon-sm transition-shadow duration-300;
   }
   
   .neon-border {
-    @apply border border-primary/50 shadow-neon-red;
+    @apply border border-primary/50 shadow-neon-sm;
   }
 
-  .neon-purple-border {
-    @apply border border-primary/50 shadow-neon-md;
-  }
-
-  .neon-blue-border {
-    @apply border border-primary/50 shadow-neon-blue;
-  }
-
-  .neon-pink-border {
-    @apply border border-primary/50 shadow-neon-pink;
-  }
-
-  .neon-cyan-border {
-    @apply border border-primary/50 shadow-neon-cyan;
-  }
-  
   .btn-glow {
-    @apply relative overflow-hidden rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-neon-red transition-all hover:shadow-neon-red-md hover:scale-105 active:scale-95;
+    @apply relative overflow-hidden rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-neon-sm transition-all hover:shadow-neon-md hover:scale-105 active:scale-95;
   }
 
   .btn-neon {
-    @apply relative overflow-hidden rounded-md bg-transparent border border-primary/50 px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-neon-red transition-all hover:shadow-neon-red-md hover:border-primary hover:scale-105 active:scale-95;
+    @apply relative overflow-hidden rounded-md bg-transparent border border-primary/50 px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-neon-sm transition-all hover:shadow-neon-md hover:border-primary hover:scale-105 active:scale-95;
   }
   
   .tag {
