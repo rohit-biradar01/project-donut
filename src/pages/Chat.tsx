@@ -5,6 +5,7 @@ import Layout from "@/components/layout/Layout";
 import ChatSidebar from "@/components/chat/ChatSidebar";
 import ChatBox from "@/components/chat/ChatBox";
 import { useChat } from "@/contexts/ChatContext";
+import { toast } from "@/hooks/use-toast";
 
 const Chat: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -19,9 +20,22 @@ const Chat: React.FC = () => {
       
       if (chatId) {
         setActiveChat(chatId);
+        
+        // Show a welcome toast when a specific chat is opened
+        toast({
+          title: "Chat opened",
+          description: "Start your conversation with this provider!",
+          duration: 3000
+        });
       } else {
         // This might be a new chat, we could handle that here
         console.log("Chat not found for provider:", id);
+        toast({
+          title: "New conversation",
+          description: "Send a message to start chatting!",
+          duration: 3000,
+          variant: "default"
+        });
       }
     }
   }, [id, chats, setActiveChat]);
@@ -49,7 +63,7 @@ const Chat: React.FC = () => {
           Messages
         </h1>
         <p className="text-muted-foreground">
-          Your secure conversations with service providers
+          Chat with your favorite service providers in a friendly, secure environment
         </p>
       </div>
       

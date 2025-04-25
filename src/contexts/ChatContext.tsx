@@ -1,6 +1,7 @@
 
 import React, { createContext, useContext, useState } from "react";
 import { Chat, Message } from "@/types";
+import { useApp } from "@/contexts/AppContext";
 
 type ChatContextType = {
   chats: Chat[];
@@ -11,6 +12,72 @@ type ChatContextType = {
 };
 
 const ChatContext = createContext<ChatContextType | undefined>(undefined);
+
+// More casual and friendly responses
+const casualResponses = {
+  greeting: [
+    "Hey there! Great to hear from you! How can I make your day better?",
+    "Hi! I was just thinking about you. What's up?",
+    "Hey! So glad you messaged. What can I help you with today?",
+  ],
+  
+  booking: [
+    "I've got some time free this evening if you want to book a session! Just let me know what works for you!",
+    "I'm free this weekend! What time works best for you?",
+    "I could squeeze you in tomorrow if that works? Let me know!",
+  ],
+  
+  services: [
+    "I offer a bunch of cool, personalized sessions. Tell me what you're looking for and I'll help you out!",
+    "I do a range of personalized sessions. What are you in the mood for today?",
+    "I've got lots of different services! What specifically interests you?",
+  ],
+  
+  gratitude: [
+    "No problem at all! I'm always happy to help!",
+    "Anytime! That's what I'm here for!",
+    "You're so welcome! Let me know if you need anything else!",
+  ],
+  
+  confirmation: [
+    "Perfect! I've got you down for that time. Looking forward to it!",
+    "Awesome! That works great for me. Can't wait!",
+    "That's perfect! I'll see you then!",
+  ],
+  
+  general: [
+    "That sounds great! What else can I help you with today?",
+    "Cool! Is there anything else you'd like to know?",
+    "Awesome! Let me know if you have any other questions!",
+    "Sounds good to me! Anything else on your mind?",
+    "Got it! What else would you like to chat about?",
+  ]
+};
+
+// Detect message intent based on keywords
+const detectIntent = (message: string): keyof typeof casualResponses => {
+  message = message.toLowerCase();
+  
+  if (message.includes("hi") || message.includes("hello") || message.includes("hey")) {
+    return "greeting";
+  } else if (message.includes("book") || message.includes("appointment") || message.includes("schedule") || message.includes("available")) {
+    return "booking";
+  } else if (message.includes("service") || message.includes("offer") || message.includes("do you provide") || message.includes("what do you do")) {
+    return "services";
+  } else if (message.includes("thank") || message.includes("appreciate") || message.includes("grateful")) {
+    return "gratitude";
+  } else if (message.includes("great") || message.includes("perfect") || message.includes("sounds good") || message.includes("works for me")) {
+    return "confirmation";
+  }
+  
+  return "general";
+};
+
+// Get random response based on intent
+const getResponse = (intent: keyof typeof casualResponses): string => {
+  const responses = casualResponses[intent];
+  return responses[Math.floor(Math.random() * responses.length)];
+};
 
 // Mock initial data
 const initialChats: Chat[] = [
@@ -69,7 +136,7 @@ const initialMessages: Record<string, Message[]> = {
       id: "m2",
       senderId: "p1",
       receiverId: "user",
-      text: "Hello! I'd be happy to help. What service were you interested in?",
+      text: "Hey! I'd be happy to help you out! What service were you interested in?",
       timestamp: "2025-04-18T14:45:00",
       isRead: true
     },
@@ -77,7 +144,7 @@ const initialMessages: Record<string, Message[]> = {
       id: "m3",
       senderId: "p1",
       receiverId: "user",
-      text: "Looking forward to our appointment tomorrow!",
+      text: "Looking forward to our appointment tomorrow! Can't wait to see you!",
       timestamp: "2025-04-18T15:30:00",
       isRead: false
     }
@@ -87,7 +154,7 @@ const initialMessages: Record<string, Message[]> = {
       id: "m4",
       senderId: "p2",
       receiverId: "user",
-      text: "Your nutrition plan is ready. Let me know if you have any questions!",
+      text: "Your nutrition plan is all set! Let me know if you have any questions!",
       timestamp: "2025-04-16T10:30:00",
       isRead: true
     },
@@ -121,7 +188,7 @@ const initialMessages: Record<string, Message[]> = {
       id: "m8",
       senderId: "p5",
       receiverId: "user",
-      text: "Sure thing! Send me the problems you're struggling with and we can go over them.",
+      text: "Sure thing! Send me those tricky problems and we'll tackle them together!",
       timestamp: "2025-04-17T20:15:00",
       isRead: true
     },
@@ -129,7 +196,7 @@ const initialMessages: Record<string, Message[]> = {
       id: "m9",
       senderId: "p5",
       receiverId: "user",
-      text: "I've prepared some additional materials for our next tutoring session.",
+      text: "I've prepared some cool extra materials for our next tutoring session. Can't wait to go through them with you!",
       timestamp: "2025-04-18T09:45:00",
       isRead: false
     }
@@ -140,6 +207,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
   const [chats, setChats] = useState<Chat[]>(initialChats);
   const [messages, setMessages] = useState<Record<string, Message[]>>(initialMessages);
   const [activeChat, setActiveChat] = useState<string | null>(null);
+  const { getProviderById } = useApp();
   
   const sendMessage = (chatId: string, text: string) => {
     const newMessage: Message = {
@@ -164,21 +232,34 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       )
     );
     
-    // Simulate response after 1-2 seconds
+    // Extract provider info to personalize response
+    const providerId = chats.find(c => c.id === chatId)?.participants.find(p => p !== "user") || "";
+    const provider = getProviderById(providerId);
+    
+    // Simulate typing delay (1-2.5 seconds)
     setTimeout(() => {
-      const responses = [
-        "Thanks for your message! I'll get back to you shortly.",
-        "Got it, looking forward to our session!",
-        "I'm available at that time, see you then!",
-        "Perfect, I'll make a note of your request.",
-        "I'll prepare everything for our appointment."
-      ];
+      // Determine appropriate response based on message content
+      const intent = detectIntent(text);
+      let responseText = getResponse(intent);
+      
+      // Personalize with provider name if available
+      if (provider) {
+        if (Math.random() > 0.7) { // 30% chance to mention name
+          responseText = responseText.replace("!", `, ${provider.alias.split(" ")[0]}!`);
+        }
+        
+        // Add service-specific content if relevant
+        if (intent === "services" && provider.services.length > 0) {
+          const randomService = provider.services[Math.floor(Math.random() * provider.services.length)];
+          responseText += ` I'm really great with ${randomService.title.toLowerCase()}!`;
+        }
+      }
       
       const responseMessage: Message = {
         id: `m${Date.now() + 1}`,
-        senderId: chats.find(c => c.id === chatId)?.participants.find(p => p !== "user") || "",
+        senderId: providerId,
         receiverId: "user",
-        text: responses[Math.floor(Math.random() * responses.length)],
+        text: responseText,
         timestamp: new Date().toISOString(),
         isRead: true
       };
@@ -195,7 +276,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
             : chat
         )
       );
-    }, 1000 + Math.random() * 1000);
+    }, 1000 + Math.random() * 1500);
   };
   
   return (
